@@ -10,6 +10,11 @@ body {
     padding-bottom: 9rem;
 }
 
+nav{
+    display: block;
+    background-color: #000;
+    color: #fff;
+}
 h1,
 h2,
 h3 {
