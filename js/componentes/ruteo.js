@@ -1,4 +1,4 @@
-import { cargarDatos } from "./productos";
+import { cargarDatos } from "./productos.js";
 
 const sitio = {
     productos: ['./sitio/productos.html', cargarDatos],
