@@ -1,4 +1,5 @@
 import { cargarDatos } from "./productos.js";
+ import { cargarProductosEnOfertaHTML } from "./oferta.js";
 
 const sitio = {
     productos: ['./sitio/productos.html', cargarDatos],
