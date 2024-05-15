@@ -1,0 +1,41 @@
+[
+    {
+        "nombre": "Camisa de algodón",
+        "en_oferta": true,
+        "descripcion": "Camisa de manga larga de algodón suave y cómodo.",
+        "peso": "200 gramos",
+        "precio": 29.99,
+        "imagen": [
+            {
+                "ubicacion": "./img/cursos/python1.png",
+                "textoAlt": "Logo de lenguaje Python"
+            }
+        ]
+    },
+    {
+        "nombre": "Pantalones vaqueros",
+        "en_oferta": false,
+        "descripcion": "Pantalones vaqueros clásicos de corte recto.",
+        "peso": "500 gramos",
+        "precio": 39.99,
+        "imagen": [
+            {
+                "ubicacion": "./img/cursos/python1.png",
+                "textoAlt": "Logo de lenguaje Python"
+            }
+        ]
+    },
+    {
+        "nombre": "Zapatillas deportivas",
+        "en_oferta": true,
+        "descripcion": "Zapatillas deportivas con suela de goma y malla transpirable.",
+        "peso": "300 gramos",
+        "precio": 49.99,
+        "imagen": [
+            {
+                "ubicacion": "./img/cursos/python1.png",
+                "textoAlt": "Logo de lenguaje Python"
+            }
+        ]
+    }
+]
