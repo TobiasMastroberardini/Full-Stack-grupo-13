@@ -20,7 +20,7 @@
         "precio": 39.99,
         "imagen": [
             {
-                "ubicacion": "./img/epccot.jpg",
+                "ubicacion": "./img/epcot.jpg",
                 "textoAlt": "Logo de lenguaje Python"
             }
         ]
@@ -33,7 +33,7 @@
         "precio": 49.99,
         "imagen": [
             {
-                "ubicacion": "./img/epccot.jpg",
+                "ubicacion": "./img/epcot.jpg",
                 "textoAlt": "Logo de lenguaje Python"
             }
         ]
