@@ -3,7 +3,7 @@ import { cargarDatos } from "./productos";
 const sitio = {
     productos: ['./sitio/productos.html', cargarDatos],
     ofertas: ['./sitio/ofertas.html',],
-    contacto: ['./sitio/contacto',],
+    contacto: ['./sitio/contacto.html',],
     404: ['./sitio/404.html']
 }
 
