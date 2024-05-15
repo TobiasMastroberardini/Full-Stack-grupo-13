@@ -80,6 +80,10 @@ fieldset {
     margin: 2%;
 }
 
+article img{
+    max-width: 150px;
+}
+
 article {
     display: flex;
     flex-direction: column;
@@ -299,30 +303,4 @@ div ul .checkBox {
         flex-direction: row;
     }
 
-}
-
-.articulos {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.articulo {
-    width: calc(33.33% - 20px); /* Establece el ancho de cada artículo */
-    margin: 10px; /* Añade un margen entre los artículos */
-    border: 1px solid #ddd; /* Añade un borde alrededor de cada artículo */
-}
-
-.imagenes {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.imagen {
-    width: calc(50% - 10px); /* Establece el ancho de cada imagen */
-    margin: 5px; /* Añade un margen entre las imágenes */
-}
-
-.imagen img {
-    max-width: 100%; /* Asegura que las imágenes no se salgan del contenedor */
-    height: auto; /* Mantiene la proporción de la imagen */
 }
