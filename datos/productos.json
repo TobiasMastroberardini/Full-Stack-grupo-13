@@ -7,7 +7,7 @@
         "precio": 29.99,
         "imagen": [
             {
-                "ubicacion": "./img/cursos/python1.png",
+                "ubicacion": "./img/epccot.jpg",
                 "textoAlt": "Logo de lenguaje Python"
             }
         ]
@@ -20,7 +20,7 @@
         "precio": 39.99,
         "imagen": [
             {
-                "ubicacion": "./img/cursos/python1.png",
+                "ubicacion": "./img/epccot.jpg",
                 "textoAlt": "Logo de lenguaje Python"
             }
         ]
@@ -33,7 +33,7 @@
         "precio": 49.99,
         "imagen": [
             {
-                "ubicacion": "./img/cursos/python1.png",
+                "ubicacion": "./img/epccot.jpg",
                 "textoAlt": "Logo de lenguaje Python"
             }
         ]
