@@ -210,7 +210,8 @@ div ul .checkBox {
     }
 
     header {
-        display: block;
+        display: flex;
+        flex-direction: column;
         justify-content: space-between;
         align-items: center;
         height: 7.5rem;
