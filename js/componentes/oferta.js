@@ -42,5 +42,20 @@ function cargarProductosHTML(datos) {
     });
 }
 
+// Función para filtrar productos por nombre
+function filtrarProductosPorNombre(nombre) {
+    const productosFiltrados = datos.filter(producto =>
+        producto.nombre.toLowerCase().includes(nombre.toLowerCase())
+    );
+    cargarProductosHTML(productosFiltrados);
+}
+
+// Event listener para el input de filtrado
+document.querySelector('#filtroNombre').addEventListener('input', function () {
+    const nombre = this.value;
+    filtrarProductosPorNombre(nombre);
+});
+
+
 export { cargarProductosEnOferta };
 

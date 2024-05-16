@@ -46,7 +46,6 @@ function cargarProductosHTML(datos) {
     });
 }
 
-
 // Función para filtrar productos por nombre
 function filtrarProductosPorNombre(nombre) {
     const productosFiltrados = datos.filter(producto =>
