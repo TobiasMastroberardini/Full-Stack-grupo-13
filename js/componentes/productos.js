@@ -35,12 +35,10 @@ function cargarProductosHTML(datos) {
         const precioElement = document.createElement('p');
         precioElement.textContent = `Precio: ${producto.precio}`;
 
-        const enOfertaElement = document.createElement('p');
-        enOfertaElement.textContent = `En oferta: ${producto.en_oferta ? 'Sí' : 'No'}`;
-
-        productoElement.append(nombreElement, imagenesContainer, descripcionElement, pesoElement, precioElement, enOfertaElement);
+        productoElement.append(nombreElement, imagenesContainer, descripcionElement, pesoElement, precioElement);
         productosContainer.appendChild(productoElement);
     });
 }
 
 export { cargarDatos };
+
