@@ -1,40 +1,561 @@
 [
     {
-        "nombre": "Camisa de algodón",
+        "nombre": "Alfajor Havanna",
+        "marca": "Havanna",
         "en_oferta": true,
-        "descripcion": "Camisa de manga larga de algodón suave y cómodo.",
-        "peso": "200 gramos",
-        "precio": 29.99,
+        "descripcion": "Alfajor relleno de dulce de leche y cubierto de chocolate.",
+        "peso": "50 gramos",
+        "precio": 25.99,
         "imagen": [
             {
-                "ubicacion": "img/epcot.jpg",
-                "textoAlt": "Logo de lenguaje Python"
+                "ubicacion": "img/alfajor_havanna.jpg",
+                "textoAlt": "Alfajor Havanna"
             }
         ]
     },
     {
-        "nombre": "Pantalones vaqueros",
+        "nombre": "Bolsa de caramelos Media Hora",
+        "marca": "Arcor",
         "en_oferta": false,
-        "descripcion": "Pantalones vaqueros clásicos de corte recto.",
-        "peso": "500 gramos",
-        "precio": 39.99,
+        "descripcion": "Bolsa con caramelos masticables surtidos de diferentes sabores.",
+        "peso": "200 gramos",
+        "precio": 12.99,
         "imagen": [
             {
-                "ubicacion": "./img/epcot.jpg",
-                "textoAlt": "Logo de lenguaje Python"
+                "ubicacion": "img/caramelos_media_hora.jpg",
+                "textoAlt": "Caramelos Media Hora"
             }
         ]
     },
     {
-        "nombre": "Zapatillas deportivas",
+        "nombre": "Chupetín Rocklets",
+        "marca": "Arcor",
         "en_oferta": true,
-        "descripcion": "Zapatillas deportivas con suela de goma y malla transpirable.",
-        "peso": "300 gramos",
-        "precio": 49.99,
+        "descripcion": "Chupetín con cobertura de chocolate y confites de colores.",
+        "peso": "20 gramos",
+        "precio": 8.99,
         "imagen": [
             {
-                "ubicacion": "./img/epcot.jpg",
-                "textoAlt": "Logo de lenguaje Python"
+                "ubicacion": "img/chupetin_rocklets.jpg",
+                "textoAlt": "Chupetín Rocklets"
+            }
+        ]
+    },
+    {
+        "nombre": "Turrón Suchard",
+        "marca": "Suchard",
+        "en_oferta": true,
+        "descripcion": "Turrón relleno de maní y cubierto de chocolate.",
+        "peso": "100 gramos",
+        "precio": 30.99,
+        "imagen": [
+            {
+                "ubicacion": "img/turron_suchard.jpg",
+                "textoAlt": "Turrón Suchard"
+            }
+        ]
+    },
+    {
+        "nombre": "Gomitas Mogul",
+        "marca": "Mogul",
+        "en_oferta": false,
+        "descripcion": "Gomitas de gelatina con forma de ositos de colores.",
+        "peso": "150 gramos",
+        "precio": 15.99,
+        "imagen": [
+            {
+                "ubicacion": "img/gomitas_mogul.jpg",
+                "textoAlt": "Gomitas Mogul"
+            }
+        ]
+    },
+    {
+        "nombre": "Bombón Cofler Block",
+        "marca": "Cofler",
+        "en_oferta": true,
+        "descripcion": "Bombón de chocolate con relleno de dulce de leche.",
+        "peso": "30 gramos",
+        "precio": 5.99,
+        "imagen": [
+            {
+                "ubicacion": "img/bombon_cofler.jpg",
+                "textoAlt": "Bombón Cofler Block"
+            }
+        ]
+    },
+    {
+        "nombre": "Chocolatín Jack",
+        "marca": "Jack",
+        "en_oferta": false,
+        "descripcion": "Barra de chocolate con trozos de maní.",
+        "peso": "40 gramos",
+        "precio": 7.99,
+        "imagen": [
+            {
+                "ubicacion": "img/chocolatin_jack.jpg",
+                "textoAlt": "Chocolatín Jack"
+            }
+        ]
+    },
+    {
+        "nombre": "Alfajor Jorgito",
+        "marca": "Jorgito",
+        "en_oferta": true,
+        "descripcion": "Alfajor de dulce de leche cubierto de chocolate blanco.",
+        "peso": "45 gramos",
+        "precio": 20.99,
+        "imagen": [
+            {
+                "ubicacion": "img/alfajor_jorgito.jpg",
+                "textoAlt": "Alfajor Jorgito"
+            }
+        ]
+    },
+    {
+        "nombre": "Bolsa de gomitas Yummy",
+        "marca": "Yummy",
+        "en_oferta": true,
+        "descripcion": "Bolsa de gomitas de sabores surtidos.",
+        "peso": "250 gramos",
+        "precio": 18.99,
+        "imagen": [
+            {
+                "ubicacion": "img/gomitas_yummy.jpg",
+                "textoAlt": "Gomitas Yummy"
+            }
+        ]
+    },
+    {
+        "nombre": "Turrón de nuez Bon o Bon",
+        "marca": "Bon o Bon",
+        "en_oferta": false,
+        "descripcion": "Turrón de chocolate relleno de trozos de nuez.",
+        "peso": "80 gramos",
+        "precio": 12.99,
+        "imagen": [
+            {
+                "ubicacion": "img/turron_bonobon.jpg",
+                "textoAlt": "Turrón de nuez Bon o Bon"
+            }
+        ]
+    },
+    {
+        "nombre": "Chicle Beldent",
+        "marca": "Beldent",
+        "en_oferta": true,
+        "descripcion": "Paquete de chicles sabor menta.",
+        "peso": "15 gramos",
+        "precio": 2.99,
+        "imagen": [
+            {
+                "ubicacion": "img/chicle_beldent.jpg",
+                "textoAlt": "Chicle Beldent"
+            }
+        ]
+    },
+    {
+        "nombre": "Barrita de cereal Cerealitas",
+        "marca": "Cerealitas",
+        "en_oferta": false,
+        "descripcion": "Barrita de cereal con trozos de frutas secas.",
+        "peso": "30 gramos",
+        "precio": 4.99,
+        "imagen": [
+            {
+                "ubicacion": "img/barrita_cerealitas.jpg",
+                "textoAlt": "Barrita de cereal Cerealitas"
+            }
+        ]
+    },
+    {
+        "nombre": "Bombón Mantecol",
+        "marca": "Arcor",
+        "en_oferta": true,
+        "descripcion": "Bombón de maní y dulce de leche cubierto de chocolate.",
+        "peso": "40 gramos",
+        "precio": 6.99,
+        "imagen": [
+            {
+                "ubicacion": "img/bombon_mantecol.jpg",
+                "textoAlt": "Bombón Mantecol"
+            }
+        ]
+    },
+    {
+        "nombre": "Paleta Mery",
+        "marca": "Mery",
+        "en_oferta": false,
+        "descripcion": "Paleta de dulce de leche cubierta de chocolate.",
+        "peso": "60 gramos",
+        "precio": 3.99,
+        "imagen": [
+            {
+                "ubicacion": "img/paleta_mery.jpg",
+                "textoAlt": "Paleta Mery"
+            }
+        ]
+    },
+    {
+        "nombre": "Chupetín Topline",
+        "marca": "Topline",
+        "en_oferta": true,
+        "descripcion": "Chupetín con sabor a frutilla.",
+        "peso": "25 gramos",
+        "precio": 4.99,
+        "imagen": [
+            {
+                "ubicacion": "img/chupetin_topline.jpg",
+                "textoAlt": "Chupetín Topline"
+            }
+        ]
+    },
+    {
+        "nombre": "Chocolate Milka",
+        "marca": "Milka",
+        "en_oferta": false,
+        "descripcion": "Tableta de chocolate con trozos de almendra.",
+        "peso": "100 gramos",
+        "precio": 8.99,
+        "imagen": [
+            {
+                "ubicacion": "img/chocolate_milka.jpg",
+                "textoAlt": "Chocolate Milka"
+            }
+        ]
+    },
+    {
+        "nombre": "Chicle Bazooka",
+        "marca": "Bazooka",
+        "en_oferta": true,
+        "descripcion": "Paquete de chicles sabor tutti frutti.",
+        "peso": "20 gramos",
+        "precio": 1.99,
+        "imagen": [
+            {
+                "ubicacion": "img/chicle_bazooka.jpg",
+                "textoAlt": "Chicle Bazooka"
+            }
+        ]
+    },
+    {
+        "nombre": "Cereal Nesquik",
+        "marca": "Nesquik",
+        "en_oferta": false,
+        "descripcion": "Cereal de chocolate con forma de bolitas.",
+        "peso": "250 gramos",
+        "precio": 7.99,
+        "imagen": [
+            {
+                "ubicacion": "img/cereal_nesquik.jpg",
+                "textoAlt": "Cereal Nesquik"
+            }
+        ]
+    },
+    {
+        "nombre": "Galletas Lincoln",
+        "marca": "Lincoln",
+        "en_oferta": true,
+        "descripcion": "Galletas con chips de chocolate.",
+        "peso": "200 gramos",
+        "precio": 6.99,
+        "imagen": [
+            {
+                "ubicacion": "img/galletas_lincoln.jpg",
+                "textoAlt": "Galletas Lincoln"
+            }
+        ]
+    },
+    {
+        "nombre": "Paleta Melody",
+        "marca": "Melody",
+        "en_oferta": false,
+        "descripcion": "Paleta de frutas con relleno de chicle.",
+        "peso": "50 gramos",
+        "precio": 2.99,
+        "imagen": [
+            {
+                "ubicacion": "img/paleta_melody.jpg",
+                "textoAlt": "Paleta Melody"
+            }
+        ]
+    },
+    {
+        "nombre": "Barrita cereales Cerealitas",
+        "marca": "Cerealitas",
+        "en_oferta": true,
+        "descripcion": "Barrita de cereales con trozos de frutas.",
+        "peso": "30 gramos",
+        "precio": 4.99,
+        "imagen": [
+            {
+                "ubicacion": "img/barrita_cerealitas.jpg",
+                "textoAlt": "Barrita cereales Cerealitas"
+            }
+        ]
+    },
+    {
+        "nombre": "Chupetín Pop Mini",
+        "marca": "Pop Mini",
+        "en_oferta": false,
+        "descripcion": "Chupetín con sabor a cereza.",
+        "peso": "10 gramos",
+        "precio": 1.99,
+        "imagen": [
+            {
+                "ubicacion": "img/chupetin_pop_mini.jpg",
+                "textoAlt": "Chupetín Pop Mini"
+            }
+        ]
+    },
+    {
+        "nombre": "Bombón Georgalos",
+        "marca": "Georgalos",
+        "en_oferta": true,
+        "descripcion": "Bombón relleno de dulce de leche y cubierto de chocolate.",
+        "peso": "30 gramos",
+        "precio": 3.99,
+        "imagen": [
+            {
+                "ubicacion": "img/bombon_georgalos.jpg",
+                "textoAlt": "Bombón Georgalos"
+            }
+        ]
+    },
+    {
+        "nombre": "Caramelos Sugus",
+        "marca": "Sugus",
+        "en_oferta": false,
+        "descripcion": "Caramelos masticables de sabores frutales.",
+        "peso": "100 gramos",
+        "precio": 8.99,
+        "imagen": [
+            {
+                "ubicacion": "img/caramelos_sugus.jpg",
+                "textoAlt": "Caramelos Sugus"
+            }
+        ]
+    },
+    {
+        "nombre": "Chocolate Milka Oreo",
+        "marca": "Milka",
+        "en_oferta": true,
+        "descripcion": "Tableta de chocolate con trozos de galleta Oreo.",
+        "peso": "90 gramos",
+        "precio": 7.99,
+        "imagen": [
+            {
+                "ubicacion": "img/chocolate_milka_oreo.jpg",
+                "textoAlt": "Chocolate Milka Oreo"
+            }
+        ]
+    },
+    {
+        "nombre": "Chupetín Pico Dulce",
+        "marca": "Pico Dulce",
+        "en_oferta": false,
+        "descripcion": "Chupetín con sabor a frutilla y relleno líquido.",
+        "peso": "15 gramos",
+        "precio": 2.99,
+        "imagen": [
+            {
+                "ubicacion": "img/chupetin_pico_dulce.jpg",
+                "textoAlt": "Chupetín Pico Dulce"
+            }
+        ]
+    },
+    {
+        "nombre": "Barrita de cereal Cerealitas",
+        "marca": "Cerealitas",
+        "en_oferta": true,
+        "descripcion": "Barrita de cereal con trozos de frutas.",
+        "peso": "30 gramos",
+        "precio": 4.99,
+        "imagen": [
+            {
+                "ubicacion": "img/barrita_cerealitas.jpg",
+                "textoAlt": "Barrita de cereal Cerealitas"
+            }
+        ]
+    },
+    {
+        "nombre": "Bombón Georgalos",
+        "marca": "Georgalos",
+        "en_oferta": false,
+        "descripcion": "Bombón relleno de dulce de leche y cubierto de chocolate.",
+        "peso": "30 gramos",
+        "precio": 3.99,
+        "imagen": [
+            {
+                "ubicacion": "img/bombon_georgalos.jpg",
+                "textoAlt": "Bombón Georgalos"
+            }
+        ]
+    },
+    {
+        "nombre": "Caramelos Sugus",
+        "marca": "Sugus",
+        "en_oferta": false,
+        "descripcion": "Caramelos masticables de sabores frutales.",
+        "peso": "100 gramos",
+        "precio": 8.99,
+        "imagen": [
+            {
+                "ubicacion": "img/caramelos_sugus.jpg",
+                "textoAlt": "Caramelos Sugus"
+            }
+        ]
+    },
+    {
+        "nombre": "Chocolate Milka Oreo",
+        "marca": "Milka",
+        "en_oferta": true,
+        "descripcion": "Tableta de chocolate con trozos de galleta Oreo.",
+        "peso": "90 gramos",
+        "precio": 7.99,
+        "imagen": [
+            {
+                "ubicacion": "img/chocolate_milka_oreo.jpg",
+                "textoAlt": "Chocolate Milka Oreo"
+            }
+        ]
+    },
+    {
+        "nombre": "Chupetín Pico Dulce",
+        "marca": "Pico Dulce",
+        "en_oferta": false,
+        "descripcion": "Chupetín con sabor a frutilla y relleno líquido.",
+        "peso": "15 gramos",
+        "precio": 2.99,
+        "imagen": [
+            {
+                "ubicacion": "img/chupetin_pico_dulce.jpg",
+                "textoAlt": "Chupetín Pico Dulce"
+            }
+        ]
+    },
+    {
+        "nombre": "Chicle Trident",
+        "marca": "Trident",
+        "en_oferta": true,
+        "descripcion": "Paquete de chicles sabor menta.",
+        "peso": "15 gramos",
+        "precio": 1.99,
+        "imagen": [
+            {
+                "ubicacion": "img/chicle_trident.jpg",
+                "textoAlt": "Chicle Trident"
+            }
+        ]
+    },
+    {
+        "nombre": "Paleta Mery",
+        "marca": "Mery",
+        "en_oferta": false,
+        "descripcion": "Paleta de dulce de leche cubierta de chocolate.",
+        "peso": "60 gramos",
+        "precio": 3.99,
+        "imagen": [
+            {
+                "ubicacion": "img/paleta_mery.jpg",
+                "textoAlt": "Paleta Mery"
+            }
+        ]
+    },
+    {
+        "nombre": "Chocolate Cofler",
+        "marca": "Cofler",
+        "en_oferta": true,
+        "descripcion": "Tableta de chocolate relleno de dulce de leche.",
+        "peso": "100 gramos",
+        "precio": 6.99,
+        "imagen": [
+            {
+                "ubicacion": "img/chocolate_cofler.jpg",
+                "textoAlt": "Chocolate Cofler"
+            }
+        ]
+    },
+    {
+        "nombre": "Chicle Beldent",
+        "marca": "Beldent",
+        "en_oferta": false,
+        "descripcion": "Paquete de chicles sabor menta.",
+        "peso": "15 gramos",
+        "precio": 2.99,
+        "imagen": [
+            {
+                "ubicacion": "img/chicle_beldent.jpg",
+                "textoAlt": "Chicle Beldent"
+            }
+        ]
+    },
+    {
+        "nombre": "Barra de cereal Cerealitas",
+        "marca": "Cerealitas",
+        "en_oferta": true,
+        "descripcion": "Barra de cereal con trozos de frutas.",
+        "peso": "30 gramos",
+        "precio": 4.99,
+        "imagen": [
+            {
+                "ubicacion": "img/barrita_cerealitas.jpg",
+                "textoAlt": "Barra de cereal Cerealitas"
+            }
+        ]
+    },
+    {
+        "nombre": "Bombón Georgalos",
+        "marca": "Georgalos",
+        "en_oferta": false,
+        "descripcion": "Bombón relleno de dulce de leche y cubierto de chocolate.",
+        "peso": "30 gramos",
+        "precio": 3.99,
+        "imagen": [
+            {
+                "ubicacion": "img/bombon_georgalos.jpg",
+                "textoAlt": "Bombón Georgalos"
+            }
+        ]
+    },
+    {
+        "nombre": "Caramelos Sugus",
+        "marca": "Sugus",
+        "en_oferta": false,
+        "descripcion": "Caramelos masticables de sabores frutales.",
+        "peso": "100 gramos",
+        "precio": 8.99,
+        "imagen": [
+            {
+                "ubicacion": "img/caramelos_sugus.jpg",
+                "textoAlt": "Caramelos Sugus"
+            }
+        ]
+    },
+    {
+        "nombre": "Chocolate Milka Oreo",
+        "marca": "Milka",
+        "en_oferta": true,
+        "descripcion": "Tableta de chocolate con trozos de galleta Oreo.",
+        "peso": "90 gramos",
+        "precio": 7.99,
+        "imagen": [
+            {
+                "ubicacion": "img/chocolate_milka_oreo.jpg",
+                "textoAlt": "Chocolate Milka Oreo"
+            }
+        ]
+    },
+    {
+        "nombre": "Chupetín Pico Dulce",
+        "marca": "Pico Dulce",
+        "en_oferta": false,
+        "descripcion": "Chupetín con sabor a frutilla y relleno líquido.",
+        "peso": "15 gramos",
+        "precio": 2.99,
+        "imagen": [
+            {
+                "ubicacion": "img/chupetin_pico_dulce.jpg",
+                "textoAlt": "Chupetín Pico Dulce"
             }
         ]
     }
