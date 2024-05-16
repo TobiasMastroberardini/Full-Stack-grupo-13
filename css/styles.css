@@ -88,6 +88,7 @@ fieldset {
 
 article img {
     max-width: 90%;
+    border-radius: 10px;
 }
 
 article {
@@ -124,7 +125,8 @@ p {
     display: flex;
     justify-content: space-around;
     padding-top: 2%;
-    overfloe: hidden;
+    border-color: #000;
+    border-radius: 10px;
 }
 
 .imgCurso {
@@ -169,6 +171,11 @@ p {
 .error404 {
     padding-top: 20%;
     padding-bottom: 20%;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
 }
 
 li {
