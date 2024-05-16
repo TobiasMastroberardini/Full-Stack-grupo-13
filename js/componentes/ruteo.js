@@ -1,9 +1,9 @@
+import { cargarProductosEnOferta } from "./oferta.js";
 import { cargarDatos } from "./productos.js";
- import { cargarProductosEnOfertaHTML } from "./oferta.js";
 
 const sitio = {
     productos: ['./sitio/productos.html', cargarDatos],
-    ofertas: ['./sitio/ofertas.html',],
+    ofertas: ['./sitio/ofertas.html', cargarProductosEnOferta],
     contacto: ['./sitio/contacto.html',],
     404: ['./sitio/404.html']
 }
@@ -35,3 +35,4 @@ function mostrarHash() {
 }
 
 export { mostrarHash };
+

@@ -1,11 +1,17 @@
 // Función para cargar los productos en oferta en el HTML
-function cargarProductosEnOfertaHTML(datos) {
+const cargarProductosEnOferta = function () {
+    fetch('./datos/productos.json')
+        .then(respuesta => respuesta.json())
+        .then(datos => {
+            const productosEnOferta = datos.filter(producto => producto.en_oferta === true);
+            cargarProductosHTML(productosEnOferta);
+        });
+}
+
+function cargarProductosHTML(datos) {
     const productosContainer = document.querySelector('.articulos');
 
-    // Filtrar los productos que están en oferta
-    const productosEnOferta = datos.filter(producto => producto.en_oferta);
-
-    productosEnOferta.forEach(function (producto) {
+    datos.forEach(function (producto) {
         const productoElement = document.createElement('article');
 
         const nombreElement = document.createElement('h3');
@@ -31,12 +37,10 @@ function cargarProductosEnOfertaHTML(datos) {
         const precioElement = document.createElement('p');
         precioElement.textContent = `Precio: ${producto.precio}`;
 
-        const enOfertaElement = document.createElement('p');
-        enOfertaElement.textContent = `En oferta: ${producto.en_oferta ? 'Sí' : 'No'}`;
-
-        productoElement.append(nombreElement, imagenesContainer, descripcionElement, pesoElement, precioElement, enOfertaElement);
+        productoElement.append(nombreElement, imagenesContainer, descripcionElement, pesoElement, precioElement);
         productosContainer.appendChild(productoElement);
     });
 }
 
-export { cargarProductosEnOfertaHTML };
+export { cargarProductosEnOferta };
+
