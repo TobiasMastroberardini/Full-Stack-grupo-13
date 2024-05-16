@@ -1,9 +1,15 @@
 // Función para cargar los datos del archivo JSON
+let datos;
+
 const cargarDatos = function () {
     fetch('./datos/productos.json')
         .then(respuesta => respuesta.json())
-        .then(datos => cargarProductosHTML(datos));
+        .then(data => {
+            datos = data;
+            cargarProductosHTML(datos);
+        });
 }
+
 
 // Función para cargar los productos en el HTML
 function cargarProductosHTML(datos) {
