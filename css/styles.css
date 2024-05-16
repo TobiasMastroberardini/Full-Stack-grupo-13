@@ -10,11 +10,12 @@ body {
     padding-bottom: 9rem;
 }
 
-nav{
+nav {
     display: block;
     background-color: #000;
     color: #fff;
 }
+
 h1,
 h2,
 h3 {
@@ -85,8 +86,8 @@ fieldset {
     margin: 2%;
 }
 
-article img{
-    max-width: 50px;
+article img {
+    max-width: 90%;
 }
 
 article {
