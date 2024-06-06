@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { AddToCartButtonComponent } from "../add-to-cart-button/add-to-cart-button.component";
 import { ProductCardComponent } from "../product-card/product-card.component";
 import { ProductDataService } from '../product-data.service';
 import { Product } from '../product/Product';
@@ -9,7 +10,7 @@ import { Product } from '../product/Product';
   standalone: true,
   templateUrl: './carousel.component.html',
   styleUrl: './carousel.component.scss',
-  imports: [CommonModule, ProductCardComponent]
+  imports: [CommonModule, ProductCardComponent, AddToCartButtonComponent]
 })
 export class CarouselComponent {
   @Input() products: Product[] = [];
