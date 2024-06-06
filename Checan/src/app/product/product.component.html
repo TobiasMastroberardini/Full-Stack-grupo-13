@@ -1,1 +1,4 @@
 <h2>Lista de Productos</h2>
+@for(product of products; track product.name){
+<app-product-card [product]="product"></app-product-card>
+}
