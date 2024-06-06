@@ -1,6 +1,17 @@
-@if(product){
-<h2>{{product.name}}</h2>
-<p>{{product.description}}</p>
-}@else {
-<p>No hay productos</p>
-}
+<!-- product-info.component.html -->
+<div class="product-info">
+    @if(product){
+    <div class="product-image">
+        <img [src]="product.image" [alt]="product.name">
+    </div>
+    <div class="product-details">
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.description }}</p>
+        <p>Precio: {{ product.price | currency }}</p>
+        <p>Disponible en stock: {{ product.stock }}</p>
+        <app-add-to-cart-button [product]="product"></app-add-to-cart-button>
+    </div>
+    }@else{
+    <p>Error: No se ha encontrado el producto.</p>
+    }
+</div>

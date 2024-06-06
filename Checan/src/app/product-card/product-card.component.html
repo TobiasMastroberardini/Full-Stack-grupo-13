@@ -4,6 +4,6 @@
         <h5 class="card-title">{{product.name}}</h5>
         <p>{{product.price | currency}}</p>
         <p class="card-text">{{product.description}}.</p>
-        <a href="product/{{product.url}}" class="btn btn-primary">Ver producto</a>
+        <app-view-product-button [product]="product"></app-view-product-button>
     </div>
 </div>
