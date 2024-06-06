@@ -37,6 +37,11 @@
     text-align: center;
 }
 
+.center img {
+    max-width: 98%;
+    max-height: auto;
+}
+
 .right {
     margin-left: auto;
     /* Solo si quieres separar el centro del derecho */

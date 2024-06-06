@@ -4,6 +4,10 @@
         <h5 class="card-title">{{product.name}}</h5>
         <p>{{product.price | currency}}</p>
         <p class="card-text">{{product.description}}.</p>
-        <app-view-product-button [product]="product"></app-view-product-button>
+        <div class="buttons">
+            <app-view-product-button [product]="product"></app-view-product-button>
+            <app-add-to-cart-button [product]="product"></app-add-to-cart-button>
+        </div>
+
     </div>
 </div>
