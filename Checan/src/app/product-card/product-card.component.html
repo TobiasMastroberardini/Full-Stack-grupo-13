@@ -1,13 +1,16 @@
 <div class="card" style="width: 18rem;">
-    <img src="{{product.image}}" class="card-img-top" alt="{{product.name}}">
-    <div class="card-body">
-        <h5 class="card-title">{{product.name}}</h5>
-        <p>{{product.price | currency}}</p>
-        <p class="card-text">{{product.description}}.</p>
-        <div class="buttons">
-            <app-view-product-button [product]="product"></app-view-product-button>
-            <app-add-to-cart-button [product]="product"></app-add-to-cart-button>
+    <a (click)="redirectToProductInfo()"><img src="{{product.image}}" class="card-img-top" alt="{{product.name}}">
+        <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5>
+            <p>{{product.price | currency}}</p>
+            <p class="card-text">{{product.description}}.</p>
         </div>
 
+    </a>
+
+    <div class="buttons">
+        <app-view-product-button [product]="product"></app-view-product-button>
+        <app-add-to-cart-button [product]="product"></app-add-to-cart-button>
     </div>
+
 </div>

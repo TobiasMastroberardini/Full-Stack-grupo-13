@@ -1,3 +1,25 @@
-.buttons {
-    display: inline;
+.card {
+
+    border-radius: 10px;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    /* Añade posición relativa */
+    z-index: 1;
+    /* Ajusta el índice z */
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    /* Aumenta la difuminación */
+}
+
+.card:active {
+    transform: translateY(-15px);
+    /* Aumenta la distancia */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+    /* Aumenta la difuminación */
 }
