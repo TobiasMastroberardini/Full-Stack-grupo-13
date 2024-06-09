@@ -1,0 +1,45 @@
+.cont {
+    display: flex;
+    align-items: center;
+    /* Alinea verticalmente en el centro */
+    justify-content: center;
+    /* Alinea horizontalmente en el centro (opcional) */
+    /* Hace que el contenedor ocupe el 100% de la altura de la ventana */
+    border: 1px solid #ccc;
+    height: 100px;
+    /* Para visualización */
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #0077ff;
+    /* Color de fondo del header */
+    height: 100px;
+}
+
+.left {
+    margin-right: auto;
+    width: 30%;
+    /* Empuja los otros divs hacia la derecha */
+}
+
+.center {
+    margin: 0 20px;
+    /* Espaciado opcional */
+    width: 30%;
+    text-align: center;
+}
+
+.center img {
+    max-width: 50%;
+    max-height: auto;
+}
+
+.right {
+    margin-left: auto;
+    /* Solo si quieres separar el centro del derecho */
+    width: 30%;
+}

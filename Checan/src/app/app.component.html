@@ -1,16 +1,14 @@
-<header>
-  <div class="header-container">
-    <div class="left">
-      <app-search-product-form></app-search-product-form>
-    </div>
-    <div class="center">
-      <img src="assets/img/Checan-6-6-2024.gif" alt="checan">
-    </div>
-    <div class="right"></div>
-
+<div>
+  <header>
+    <app-header></app-header>
+  </header>
+  <div class="navbar">
+    <app-navbar class="navbar-component"></app-navbar>
   </div>
-  <app-navbar></app-navbar>
-</header>
-<div class="container">
-  <router-outlet></router-outlet>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+  <footer>
+
+  </footer>
 </div>

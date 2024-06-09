@@ -36,7 +36,7 @@ export class ProductsListComponent implements OnInit {
         const windowSize = window.innerWidth;
         if (windowSize < 576) { // Extra small screens
             this.chunkSize = 1;
-        } else if (windowSize < 768) { // Small screens
+        } else if (windowSize < 990) { // Small screens
             this.chunkSize = 3;
         } else { // Medium and larger screens
             this.chunkSize = 4;

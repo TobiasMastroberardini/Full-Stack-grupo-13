@@ -1,10 +1,19 @@
 .card {
     border: none;
     /* Elimina el borde */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
-
-
 
 button {
     background-color: #FBB339;
+}
+
+.row {
+    justify-content: center;
+}
+
+.carousel {
+    text-align: center;
 }

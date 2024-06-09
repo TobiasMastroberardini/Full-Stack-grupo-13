@@ -1,7 +1,8 @@
-<!-- product.component.html -->
-<h2>Lista de Productos</h2>
-<div *ngFor="let chunk of productChunks" class="row">
-    <div class="col" *ngFor="let product of chunk">
-        <app-product-card [product]="product"></app-product-card>
+<div class="product-list">
+    <h2>Lista de Productos</h2>
+    <div *ngFor="let chunk of productChunks" class="row">
+        <div class="col" *ngFor="let product of chunk">
+            <app-product-card [product]="product"></app-product-card>
+        </div>
     </div>
 </div>

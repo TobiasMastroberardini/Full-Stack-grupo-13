@@ -1,15 +1,15 @@
 import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from "./header/header.component";
 import { NavbarComponent } from "./navbar/navbar.component";
-import { SearchProductFormComponent } from "./search-product-form/search-product-form.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  imports: [RouterOutlet, NavbarComponent, HttpClientModule, SearchProductFormComponent]
+  imports: [RouterOutlet, HttpClientModule, HeaderComponent, NavbarComponent]
 })
 export class AppComponent {
   title = 'Checan';
