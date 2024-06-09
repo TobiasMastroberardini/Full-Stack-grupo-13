@@ -6,3 +6,40 @@
 .card {
     margin: 10px;
 }
+
+.cart {
+    position: fixed;
+    top: 0;
+    right: -50%;
+    /* Oculto fuera de la pantalla inicialmente */
+    width: 50%;
+    height: 100%;
+    background-color: #f8f8f8;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: right 0.3s ease;
+    z-index: 1000;
+    /* Asegura que esté por encima de otros elementos */
+}
+
+.cart.open {
+    right: 0;
+    /* Mueve el carrito a la vista */
+}
+
+.close-btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.cart-content {
+    padding: 20px;
+}
+
+#openCartBtn {
+    margin: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+}

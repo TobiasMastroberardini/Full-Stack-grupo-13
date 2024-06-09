@@ -17,8 +17,15 @@ export class CartComponent {
   cartList!: Observable<Product[]>;
   product: any;
 
+  isOpen = false;
+
   constructor(private cart: ProductCartService) {
     this.cartList = cart.cartList.asObservable();
+  }
+
+
+  toggleCart() {
+    this.isOpen = !this.isOpen;
   }
 
   ngOnInit(): void { }
