@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DeleteButtonComponent } from "../delete-product-button/delete-product-button.component";
-import { ProductCardComponent } from "../product-card/product-card.component";
+import { ProductCardComponent } from '../product-card/product-card.component';
 import { ProductCartService } from '../product-cart.service';
 import { Product } from '../product/Product';
 
@@ -10,19 +11,16 @@ import { Product } from '../product/Product';
   selector: 'app-cart',
   standalone: true,
   templateUrl: './cart.component.html',
-  styleUrl: './cart.component.scss',
-  imports: [CommonModule, ProductCardComponent, DeleteButtonComponent]
+  styleUrls: ['./cart.component.scss'],
+  imports: [HttpClientModule, DeleteButtonComponent, ProductCardComponent, CommonModule]
 })
 export class CartComponent {
   cartList!: Observable<Product[]>;
-  product: any;
-
   isOpen = false;
 
   constructor(private cart: ProductCartService) {
     this.cartList = cart.cartList.asObservable();
   }
-
 
   toggleCart() {
     this.isOpen = !this.isOpen;

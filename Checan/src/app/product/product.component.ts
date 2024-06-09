@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { CarouselComponent } from "../carousel/carousel.component";
 import { ProductCardComponent } from "../product-card/product-card.component";
+import { ProductCartService } from '../product-cart.service';
 import { ProductDataService } from '../product-data.service';
 import { Product } from './Product';
 
@@ -14,39 +16,15 @@ import { Product } from './Product';
     imports: [HttpClientModule, CommonModule, ProductCardComponent, CarouselComponent]
 })
 export class ProductsListComponent implements OnInit {
-    products: Product[] = [];
-    cart: any;
-    productChunks: Product[][] = [];
-    chunkSize: number = 4; // Default chunk size
+    products$: Observable<Product[]>;
 
-    constructor(private productsDataService: ProductDataService) { }
-
-    ngOnInit(): void {
-        if (typeof window !== 'undefined') {
-            this.setChunkSize();
-            this.productsDataService.getAll().subscribe(products => {
-                this.products = products;
-                this.chunkProducts();
-            });
-        }
+    constructor(private productService: ProductDataService, private cartService: ProductCartService) {
+        this.products$ = this.productService.getAll();
     }
 
+    ngOnInit(): void { }
 
-    setChunkSize(): void {
-        const windowSize = window.innerWidth;
-        if (windowSize < 576) { // Extra small screens
-            this.chunkSize = 1;
-        } else if (windowSize < 990) { // Small screens
-            this.chunkSize = 3;
-        } else { // Medium and larger screens
-            this.chunkSize = 4;
-        }
-    }
-
-
-    chunkProducts(): void {
-        for (let i = 0; i < this.products.length; i += this.chunkSize) {
-            this.productChunks.push(this.products.slice(i, i + this.chunkSize));
-        }
+    addToCart(product: Product): void {
+        this.cartService.addToCart(product);
     }
 }
