@@ -14,9 +14,6 @@ export class AddToCartButtonComponent {
   constructor(private cart: ProductCartService) { }
 
   addToCart(product: Product): void {
-    console.log(this.product);
-
     this.cart.addToCart(product);
-    product.quantity = 0;
   }
 }

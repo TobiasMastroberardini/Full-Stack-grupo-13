@@ -8,6 +8,7 @@ export interface Product {
     stock: number;
     url: string;
     category: string;
+    openPackage: number;
 }
 
 export interface ProductItem {

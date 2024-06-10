@@ -7,7 +7,14 @@
 }
 
 button {
-    background-color: #FBB339;
+    background-color: #191858;
+    font-family: "Montserrat", sans-serif;
+    color: #fff;
+    border: none;
+}
+
+.button:hover {
+    background-color: #2a2891;
 }
 
 .row {
@@ -18,4 +25,8 @@ button {
 
 .carousel {
     text-align: center;
+}
+
+.flex {
+    justify-content: center;
 }

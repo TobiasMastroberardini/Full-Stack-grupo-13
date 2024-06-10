@@ -16,15 +16,30 @@ import { Product } from './Product';
     imports: [HttpClientModule, CommonModule, ProductCardComponent, CarouselComponent]
 })
 export class ProductsListComponent implements OnInit {
-    products$: Observable<Product[]>;
+    products$: Observable<Product[]> | undefined;
+    currentPage: number = 1;
 
-    constructor(private productService: ProductDataService, private cartService: ProductCartService) {
-        this.products$ = this.productService.getAll();
+    constructor(private productService: ProductDataService, private cartService: ProductCartService) { }
+
+    ngOnInit(): void {
+        this.loadPage(this.currentPage);
     }
 
-    ngOnInit(): void { }
-
-    addToCart(product: Product): void {
-        this.cartService.addToCart(product);
+    loadPage(page: number): void {
+        this.products$ = this.productService.getPage(page);
     }
+
+    nextPage(): void {
+        this.currentPage++;
+        this.loadPage(this.currentPage);
+    }
+
+    prevPage(): void {
+        if (this.currentPage > 1) {
+            this.currentPage--;
+            this.loadPage(this.currentPage);
+        }
+    }
+
+
 }

@@ -4,6 +4,11 @@
     align-items: center;
 }
 
+.product-item,
+.card {
+    justify-content: center;
+}
+
 .row,
 .card {
     justify-content: center;
@@ -17,4 +22,19 @@
     justify-content: center;
     text-align: center;
     align-items: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Establece el tamaño mínimo y máximo de las columnas */
+    gap: 20px;
+    /* Espacio entre los elementos */
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.flex {
+    justify-content: center;
 }

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { AddToCartButtonComponent } from "../add-to-cart-button/add-to-cart-button.component";
 import { ProductCardComponent } from "../product-card/product-card.component";
 import { ProductDataService } from '../product-data.service';
@@ -13,9 +13,7 @@ import { Product } from '../product/Product';
   imports: [CommonModule, ProductCardComponent, AddToCartButtonComponent]
 })
 export class CarouselComponent {
-  @Input() products: Product[] = [];
-
-  cart: any;
+  products: Product[] = [];
   productChunks: Product[][] = [];
   chunkSize: number = 4; // Default chunk size
 
