@@ -1,28 +1,34 @@
-<h3>Carrusel de Productos</h3>
-<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        <div *ngFor="let productChunk of productChunks; let i = index" [class.active]="i === 0" class="carousel-item"
-            data-bs-interval="10000">
-            <div class="row">
-                <div *ngFor="let product of productChunk" class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <div class="card">
-                        <app-product-card [product]="product"></app-product-card>
+<div class="container">
+    <div class="intro">
+        <div class="separador"></div>
+        <h1>Carrusel de Productos</h1>
+        <div class="separador"></div>
+    </div>
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div *ngFor="let productChunk of productChunks; let i = index" [class.active]="i === 0"
+                class="carousel-item" data-bs-interval="10000">
+                <div class="row">
+                    <div *ngFor="let product of productChunk" class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card">
+                            <app-product-card [product]="product"></app-product-card>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
 
-    <div
-        class="flex overflow-hidden bg-white border divide-x rounded-lg rtl:flex-row-reverse dark:bg-gray-900 dark:border-gray-700 dark:divide-gray-700">
-        <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev"
-            class="px-4 py-2 text-sm font-medium text-gray-600 transition-colors duration-200 sm:text-base sm:px-6 dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">Anterior
-        </button>
+        <div
+            class="flex overflow-hidden bg-white border divide-x rounded-lg rtl:flex-row-reverse dark:bg-gray-900 dark:border-gray-700 dark:divide-gray-700">
+            <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev"
+                class="px-4 py-2 text-sm font-medium text-gray-600 transition-colors duration-200 sm:text-base sm:px-6 dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">Anterior
+            </button>
 
-        <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next"
-            class="px-4 py-2 text-sm font-medium text-gray-600 transition-colors duration-200 sm:text-base sm:px-6 dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">Siguiente
-        </button>
+            <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next"
+                class="px-4 py-2 text-sm font-medium text-gray-600 transition-colors duration-200 sm:text-base sm:px-6 dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">Siguiente
+            </button>
+        </div>
     </div>
 </div>

@@ -19,6 +19,7 @@ export class CartComponent implements OnDestroy {
   cartList$: Observable<Product[]>;
   isOpen = false;
   private cartOpenSubscription: Subscription;
+  subtotal: number | null = null; // Inicializar a null
 
   constructor(private cartStateService: CartStateService, private cartService: ProductCartService) {
     this.cartList$ = this.cartService.cartList.asObservable();
@@ -34,4 +35,14 @@ export class CartComponent implements OnDestroy {
   ngOnDestroy() {
     this.cartOpenSubscription.unsubscribe();
   }
+
+  calculateSubtotal(products: Product[]) {
+    return products.reduce((acc, curr) => acc + (curr.price * curr.quantity), 0);
+  }
+
+  // Método para calcular y actualizar el subtotal
+  updateSubtotal(products: Product[]) {
+    this.subtotal = this.calculateSubtotal(products);
+  }
+
 }

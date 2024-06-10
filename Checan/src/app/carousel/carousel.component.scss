@@ -19,7 +19,7 @@ button {
 
 .row {
     justify-content: center;
-    min-height: 600px;
+    min-height: 400px;
     align-items: center;
 }
 
@@ -29,4 +29,14 @@ button {
 
 .flex {
     justify-content: center;
+}
+
+h1 {
+    font-size: 20px;
+    font-family: "Quicksand",
+        sans-serif;
+}
+
+.container {
+    text-align: center;
 }
