@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CartStateService } from '../cart-state.service';
 import { CartComponent } from "../cart/cart.component";
 import { SearchProductFormComponent } from "../search-product-form/search-product-form.component";
 
@@ -10,5 +11,9 @@ import { SearchProductFormComponent } from "../search-product-form/search-produc
   imports: [SearchProductFormComponent, CartComponent]
 })
 export class NavbarComponent {
+  constructor(private cartStateService: CartStateService) { }
 
+  toggleCart() {
+    this.cartStateService.toggleCart();
+  }
 }

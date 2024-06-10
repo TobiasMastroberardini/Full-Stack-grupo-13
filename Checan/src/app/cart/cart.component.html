@@ -9,7 +9,7 @@
             </svg></h3>
 
         <div class="list">
-            @for(product of (cartList | async); track product.name){
+            @for(product of (cartList$ | async); track product.name){
             <div class="card">
                 <app-product-card [product]="product"></app-product-card>
                 <app-delete-product-button [product]="product"></app-delete-product-button>

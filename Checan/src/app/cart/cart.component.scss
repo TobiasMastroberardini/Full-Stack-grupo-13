@@ -1,12 +1,3 @@
-.list {
-    display: flex;
-    flex-direction: row;
-}
-
-.card {
-    margin: 10px;
-}
-
 .cart {
     position: fixed;
     top: 0;
@@ -31,21 +22,4 @@
 .cart.open {
     right: 0;
     /* Mueve el carrito a la vista */
-}
-
-.close-btn {
-    background: red;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-}
-
-.cart-content {
-    padding: 20px;
-}
-
-#openCartBtn {
-
-    cursor: pointer;
 }

@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnDestroy } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
+import { CartStateService } from '../cart-state.service';
 import { DeleteButtonComponent } from "../delete-product-button/delete-product-button.component";
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { ProductCartService } from '../product-cart.service';
@@ -14,19 +15,23 @@ import { Product } from '../product/Product';
   styleUrls: ['./cart.component.scss'],
   imports: [HttpClientModule, DeleteButtonComponent, ProductCardComponent, CommonModule]
 })
-export class CartComponent {
-  cartList!: Observable<Product[]>;
+export class CartComponent implements OnDestroy {
+  cartList$: Observable<Product[]>;
   isOpen = false;
+  private cartOpenSubscription: Subscription;
 
-  constructor(private cart: ProductCartService) {
-    this.cartList = cart.cartList.asObservable();
+  constructor(private cartStateService: CartStateService, private cartService: ProductCartService) {
+    this.cartList$ = this.cartService.cartList.asObservable();
+    this.cartOpenSubscription = this.cartStateService.isCartOpen$.subscribe(isOpen => {
+      this.isOpen = isOpen;
+    });
   }
 
   toggleCart() {
-    this.isOpen = !this.isOpen;
+    this.cartStateService.toggleCart();
   }
 
-  ngOnInit(): void { }
-
-  ngOnDestroy(): void { }
+  ngOnDestroy() {
+    this.cartOpenSubscription.unsubscribe();
+  }
 }
