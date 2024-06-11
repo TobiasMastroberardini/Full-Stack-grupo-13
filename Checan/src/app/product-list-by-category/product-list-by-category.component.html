@@ -1,0 +1,7 @@
+<!-- src/app/product-list-by-category/product-list-by-category.component.html -->
+<div *ngFor="let category of getCategories()">
+    <h2>{{ category }}</h2>
+    <div *ngFor="let product of productsByCategory[category]">
+        <app-product-card [product]="product"></app-product-card>
+    </div>
+</div>

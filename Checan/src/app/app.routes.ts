@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { NewsComponent } from './news/news.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ProductInfoComponent } from './product-info/product-info.component';
+import { ProductListByCategoryComponent } from './product-list-by-category/product-list-by-category.component';
 import { ProductsListComponent } from './product/product.component';
 
 export const routes: Routes = [
@@ -32,6 +33,10 @@ export const routes: Routes = [
     {
         path: 'news',
         component: NewsComponent,
+    },
+    {
+        path: 'product/filter',
+        component: ProductListByCategoryComponent
     },
     {
         path: 'contact',
