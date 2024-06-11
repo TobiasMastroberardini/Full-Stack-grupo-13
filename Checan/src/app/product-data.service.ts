@@ -36,4 +36,24 @@ export class ProductDataService {
     const endIndex = startIndex + this.productsPerPage;
     return this.products.slice(startIndex, endIndex);
   }
+
+  public getProductsByCategory(): Observable<{ [category: string]: Product[] }> {
+    if (this.products.length === 0) {
+      return this.getAll().pipe(
+        map(products => this.groupByCategory(products))
+      );
+    } else {
+      return of(this.groupByCategory(this.products));
+    }
+  }
+
+  private groupByCategory(products: Product[]): { [category: string]: Product[] } {
+    return products.reduce((acc, product) => {
+      if (!acc[product.category]) {
+        acc[product.category] = [];
+      }
+      acc[product.category].push(product);
+      return acc;
+    }, {} as { [category: string]: Product[] });
+  }
 }
