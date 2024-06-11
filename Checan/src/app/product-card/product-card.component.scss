@@ -1,4 +1,4 @@
-.max-w-xs {
+.card {
     border-radius: 10px;
     display: block;
     text-decoration: none;
@@ -10,13 +10,13 @@
     /* Ajusta el índice z */
 }
 
-.max-w-xs:hover {
+.card:hover {
     transform: translateY(-10px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     /* Aumenta la difuminación */
 }
 
-.max-w-xs:active {
+.card:active {
     transform: translateY(-15px);
     /* Aumenta la distancia */
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);

@@ -27,17 +27,21 @@
 }
 
 .center {
-    margin: 0 20px;
-    /* Espaciado opcional */
     width: 30%;
     text-align: center;
+    display: flex;
+    align-items: center;
     justify-content: center;
+    /* Agrega este estilo para centrar horizontalmente */
+    height: 100%;
+    /* Agrega un valor de altura para el contenedor */
 }
 
 .center img {
     max-width: 50%;
     max-height: auto;
-    right: 0;
+    object-fit: contain;
+    /* o "cover" según tus necesidades */
 }
 
 .right {

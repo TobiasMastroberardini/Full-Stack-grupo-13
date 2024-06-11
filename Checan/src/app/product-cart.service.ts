@@ -1,16 +1,17 @@
+// product-cart.service.ts
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { AlertService } from './alert.service';
 import { Product } from './product/Product';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductCartService {
-
   private _cartList: Product[] = [];
   cartList: BehaviorSubject<Product[]> = new BehaviorSubject(this._cartList);
 
-  constructor() {
+  constructor(private alertService: AlertService) {
     this._cartList = this.getCartFromLocalStorage();
     this.cartList.next(this._cartList);
   }
@@ -24,6 +25,9 @@ export class ProductCartService {
     }
     this.saveCartToLocalStorage();
     this.cartList.next(this._cartList);
+
+    this.alertService.showAlert('Producto agregado al carrito');
+    console.log("agregado");
   }
 
   removeFromCart(product: Product) {

@@ -1,19 +1,31 @@
-import { Component, Input } from '@angular/core';
-import { ProductCartService } from '../product-cart.service';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { InputNumberComponent } from "../input-number/input-number.component";
 import { Product } from '../product/Product';
 
 @Component({
   selector: 'app-add-to-cart-button',
   standalone: true,
-  imports: [],
   templateUrl: './add-to-cart-button.component.html',
-  styleUrl: './add-to-cart-button.component.scss'
+  styleUrl: './add-to-cart-button.component.scss',
+  imports: [InputNumberComponent, FormsModule]
 })
 export class AddToCartButtonComponent {
-  @Input() product: any;
-  constructor(private cart: ProductCartService) { }
+  @Input() product!: Product;
+  @Output() addToCart = new EventEmitter<{ product: Product, quantity: number }>();
+  quantity: number = 1;
 
-  addToCart(product: Product): void {
-    this.cart.addToCart(product);
+  increaseQuantity() {
+    this.quantity++;
+  }
+
+  decreaseQuantity() {
+    if (this.quantity > 1) {
+      this.quantity--;
+    }
+  }
+
+  onAddToCart() {
+    this.addToCart.emit({ product: this.product, quantity: this.quantity });
   }
 }

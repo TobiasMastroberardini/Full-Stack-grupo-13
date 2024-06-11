@@ -2,8 +2,12 @@
     width: 100%;
     position: sticky;
     top: 0;
-    z-index: 200;
+    z-index: 2;
     padding-top: 0;
+}
+
+.app-cart {
+    z-index: 5;
 }
 
 .navbar-component {
