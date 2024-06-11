@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { InputNumberComponent } from "../input-number/input-number.component";
 import { Product } from '../product/Product';
@@ -13,19 +13,17 @@ import { Product } from '../product/Product';
 export class AddToCartButtonComponent {
   @Input() product!: Product;
   @Output() addToCart = new EventEmitter<{ product: Product, quantity: number }>();
-  quantity: number = 1;
 
-  increaseQuantity() {
-    this.quantity++;
+  @ViewChild(InputNumberComponent) inputNumberComponent!: InputNumberComponent;
+
+  quantity = 1;
+
+  onQuantityChange(quantity: number): void {
+    this.quantity = quantity;
   }
-
-  decreaseQuantity() {
-    if (this.quantity > 1) {
-      this.quantity--;
-    }
-  }
-
   onAddToCart() {
-    this.addToCart.emit({ product: this.product, quantity: this.quantity });
+    const quantity = this.inputNumberComponent.quantity;
+    this.addToCart.emit({ product: this.product, quantity });
+    // this.inputNumberComponent.reset(); // Opcional: restablecer el valor de quantity en InputNumberComponent
   }
 }

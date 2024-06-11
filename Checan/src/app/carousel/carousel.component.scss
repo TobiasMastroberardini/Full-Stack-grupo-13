@@ -11,6 +11,7 @@ button {
     font-family: "Montserrat", sans-serif;
     color: #fff;
     border: none;
+    width: 100%;
 }
 
 .button:hover {
@@ -25,10 +26,14 @@ button {
 
 .carousel {
     text-align: center;
+    justify-content: center;
+    align-items: centers;
 }
 
 .flex {
+    margin-top: 10px;
     justify-content: center;
+    border: none;
 }
 
 h1 {
@@ -39,4 +44,27 @@ h1 {
 
 .container {
     text-align: center;
+}
+
+
+
+.product-grid {
+    display: grid;
+    gap: 16px;
+}
+
+.chunk-1 {
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.chunk-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.chunk-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.chunk-4 {
+    grid-template-columns: repeat(4, 1fr);
 }

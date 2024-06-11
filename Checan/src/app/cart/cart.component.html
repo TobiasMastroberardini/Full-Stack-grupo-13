@@ -53,9 +53,11 @@
                                             <li class="flex py-6">
                                                 <div
                                                     class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                                                    <img src="{{product.image}}"
-                                                        alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt."
-                                                        class="h-full w-full object-cover object-center">
+                                                    <a (click)="redirectToProductInfo(product)"> <img
+                                                            src="{{product.image}}"
+                                                            alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt."
+                                                            class="h-full w-full object-cover object-center">
+                                                    </a>
                                                 </div>
 
                                                 <div class="ml-4 flex flex-1 flex-col">
@@ -63,8 +65,8 @@
                                                         <div
                                                             class="flex justify-between text-base font-medium text-gray-900">
                                                             <h3>
-                                                                <a
-                                                                    (click)="redirectToProductInfo(product)">{{product.name}}</a>
+                                                                <a (click)="redirectToProductInfo(product)">{{product.name}}
+                                                                </a>
                                                             </h3>
                                                             <p class="ml-4">{{product.price | currency}}</p>
                                                         </div>
@@ -73,7 +75,6 @@
                                                     </div>
                                                     <div class="flex flex-1 items-end justify-between text-sm">
                                                         <p class="text-gray-500">{{product.quantity}}</p>
-
                                                         <div class="flex">
                                                             <button (click)="deleteFromCart(product)" type="button"
                                                                 class="font-medium text-indigo-600 hover:text-indigo-500">Eliminar</button>

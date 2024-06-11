@@ -3,6 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AddToCartButtonComponent } from "../add-to-cart-button/add-to-cart-button.component";
+import { GoBackComponent } from "../go-back/go-back.component";
 import { ProductCartService } from '../product-cart.service';
 import { Product } from '../product/Product';
 import { SharedStateService } from '../shared-state.service';
@@ -12,7 +13,7 @@ import { ViewProductButtonComponent } from '../view-product-button/view-product-
   templateUrl: './product-info.component.html',
   standalone: true,
   styleUrls: ['./product-info.component.scss'],
-  imports: [CommonModule, HttpClientModule, ProductInfoComponent, ViewProductButtonComponent, AddToCartButtonComponent]
+  imports: [CommonModule, HttpClientModule, ProductInfoComponent, ViewProductButtonComponent, AddToCartButtonComponent, GoBackComponent]
 })
 
 export class ProductInfoComponent implements OnInit {
