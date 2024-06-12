@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AlertService } from '../alert.service';
+import { CartStateService } from '../cart-state.service';
 
 @Component({
   selector: 'app-alert-add-to-cart',
@@ -13,8 +14,20 @@ import { AlertService } from '../alert.service';
 export class AlertAddToCartComponent implements OnInit, OnDestroy {
   message: string | null = null;
   private alertSubscription: Subscription | undefined;
+  isCartOpen: boolean = false;
 
-  constructor(private alertService: AlertService) { }
+  constructor(private alertService: AlertService, private cartStateService: CartStateService) {
+    this.isCartOpen = false;
+  }
+
+  toggleCartService() {
+    this.cartStateService.toggleCart();
+  }
+
+  toggleCart() {
+    this.isCartOpen = !this.isCartOpen;
+  }
+
 
   ngOnInit() {
     this.alertSubscription = this.alertService.alert$.subscribe(message => {

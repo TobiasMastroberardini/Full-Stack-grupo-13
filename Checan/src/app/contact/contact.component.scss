@@ -1,3 +1,15 @@
 .container {
     padding: 40px
 }
+
+button {
+    background-color: #191858;
+    font-family: "Montserrat", sans-serif;
+    color: #fff;
+    border: none;
+    margin: 10px;
+}
+
+.button:hover {
+    background-color: #2a2891;
+}

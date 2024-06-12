@@ -18,7 +18,8 @@
                 </p>
 
                 <p class="text-gray-600 dark:text-gray-300">{{product.price | currency}}</p>
-                <app-add-to-cart-button [product]="product" (addToCart)="onAddToCart($event)"></app-add-to-cart-button>
+                <app-add-to-cart-button class="app-cart-button" [product]="product"
+                    (addToCart)="onAddToCart($event)"></app-add-to-cart-button>
                 <div class="flex items-center justify-between mt-12 lg:justify-start">
                     <app-go-back></app-go-back>
                 </div>

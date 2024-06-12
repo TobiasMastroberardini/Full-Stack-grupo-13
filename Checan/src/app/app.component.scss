@@ -1,17 +1,14 @@
-.navbar {
+header {
     width: 100%;
     position: sticky;
     top: 0;
     z-index: 2;
     padding-top: 0;
+    margin-bottom: 50px;
 }
 
 .app-cart {
     z-index: 5;
-}
-
-.navbar-component {
-    width: 100%;
 }
 
 footer {

@@ -1,11 +1,9 @@
-.cart {
-    z-index: 100;
-    /* Ajusta este valor según sea necesario para asegurarte de que el carrito esté por debajo del navbar */
+.carrito-title {
+    position: relative;
 }
 
-.cart-menu {
+.carrito-title h2 {
     position: absolute;
-    top: calc(100% + 10px);
-    /* Ajusta el margen superior según sea necesario */
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
 }
