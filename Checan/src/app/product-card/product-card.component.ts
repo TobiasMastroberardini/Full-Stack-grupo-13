@@ -2,10 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { AddToCartButtonComponent } from "../add-to-cart-button/add-to-cart-button.component";
-
 import { ProductCartService } from '../product-cart.service';
-import { ProductInfoComponent } from "../product-info/product-info.component";
 import { Product } from '../product/Product';
 import { SharedStateService } from '../shared-state.service';
 import { ViewProductButtonComponent } from "../view-product-button/view-product-button.component";
@@ -13,27 +10,25 @@ import { ViewProductButtonComponent } from "../view-product-button/view-product-
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, ProductInfoComponent, ViewProductButtonComponent, AddToCartButtonComponent],
+  imports: [CommonModule, HttpClientModule, ViewProductButtonComponent],
   templateUrl: './product-card.component.html',
-  styleUrl: './product-card.component.scss',
+  styleUrls: ['./product-card.component.scss'],
 })
 export class ProductCardComponent {
-
   @Input() product!: Product;
-  // finalizePurchase(){}
-  constructor(private router: Router, private sharedStateService: SharedStateService, private cart: ProductCartService) { }
+
+  constructor(
+    private router: Router,
+    private sharedStateService: SharedStateService,
+    private cartService: ProductCartService
+  ) { }
 
   redirectToProductInfo(): void {
     this.sharedStateService.setProduct(this.product);
     this.router.navigate(['/product-info']);
   }
-  addToCart(product: Product): void {
-    this.cart.addToCart(product);
+
+  onAddToCart(): void {
+    this.cartService.addToCart({ ...this.product, quantity: 1 });
   }
 }
-
-
-
-
-
-

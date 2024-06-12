@@ -37,6 +37,20 @@ export class ProductDataService {
     return this.products.slice(startIndex, endIndex);
   }
 
+  public getTotalPages(): Observable<number> {
+    if (this.products.length === 0) {
+      return this.getAll().pipe(
+        map(() => this.calculateTotalPages())
+      );
+    } else {
+      return of(this.calculateTotalPages());
+    }
+  }
+
+  private calculateTotalPages(): number {
+    return Math.ceil(this.products.length / this.productsPerPage);
+  }
+
   public getProductsByCategory(): Observable<{ [category: string]: Product[] }> {
     if (this.products.length === 0) {
       return this.getAll().pipe(

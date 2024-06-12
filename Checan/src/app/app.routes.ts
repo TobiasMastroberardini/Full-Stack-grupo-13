@@ -8,6 +8,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ProductInfoComponent } from './product-info/product-info.component';
 import { ProductListByCategoryComponent } from './product-list-by-category/product-list-by-category.component';
 import { ProductsListComponent } from './product/product.component';
+import { SingUpComponent } from './sing-up/sing-up.component';
 
 export const routes: Routes = [
     {
@@ -46,6 +47,10 @@ export const routes: Routes = [
     {
         path: 'login',
         component: LogInComponent,
+    },
+    {
+        path: 'sing-up',
+        component: SingUpComponent,
     },
     {
         path: '**',  // Ruta para manejar URLs no encontradas
