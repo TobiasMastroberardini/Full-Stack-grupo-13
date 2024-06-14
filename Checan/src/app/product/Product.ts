@@ -10,8 +10,3 @@ export interface Product {
     category: string;
     openPackage: number;
 }
-
-export interface ProductItem {
-    product: Product;
-    quantity: number;
-}
