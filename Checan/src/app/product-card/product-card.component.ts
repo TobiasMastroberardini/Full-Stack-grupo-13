@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { AddToCartButtonComponent } from "../add-to-cart-button/add-to-cart-button.component";
 import { ProductCartService } from '../product-cart.service';
 import { Product } from '../product/Product';
 import { SharedStateService } from '../shared-state.service';
@@ -10,9 +11,9 @@ import { ViewProductButtonComponent } from "../view-product-button/view-product-
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, ViewProductButtonComponent],
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.scss'],
+  imports: [CommonModule, HttpClientModule, ViewProductButtonComponent, AddToCartButtonComponent]
 })
 export class ProductCardComponent {
   @Input() product!: Product;
