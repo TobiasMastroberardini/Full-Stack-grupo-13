@@ -45,14 +45,6 @@ export const routes: Routes = [
         component: ContactComponent,
     },
     {
-        path: 'login',
-        component: LogInComponent,
-    },
-    {
-        path: 'sing-up',
-        component: SingUpComponent,
-    },
-    {
         path: '**',  // Ruta para manejar URLs no encontradas
         component: PageNotFoundComponent
     },
