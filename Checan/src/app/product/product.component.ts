@@ -4,8 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { CarouselComponent } from "../carousel/carousel.component";
+import { PreviusAndNextComponent } from "../previus-and-next/previus-and-next.component";
 import { ProductCardComponent } from "../product-card/product-card.component";
-import { ProductCartService } from '../product-cart.service';
 import { ProductDataService } from '../product-data.service';
 import { Product } from './Product';
 
@@ -14,14 +14,14 @@ import { Product } from './Product';
     standalone: true,
     templateUrl: './product.component.html',
     styleUrls: ['./product.component.scss'],
-    imports: [HttpClientModule, CommonModule, ProductCardComponent, CarouselComponent]
+    imports: [HttpClientModule, CommonModule, ProductCardComponent, CarouselComponent, PreviusAndNextComponent]
 })
 export class ProductsListComponent implements OnInit {
     products$: Observable<Product[]> | undefined;
     currentPage: number = 1;
     totalPages: number = 1;
 
-    constructor(private productService: ProductDataService, private cartService: ProductCartService) { }
+    constructor(private productService: ProductDataService) { }
 
     ngOnInit(): void {
         this.loadTotalPages();
@@ -38,19 +38,8 @@ export class ProductsListComponent implements OnInit {
         ).subscribe();
     }
 
-    nextPage(): void {
-        if (this.currentPage < this.totalPages) {
-            this.currentPage++;
-            this.loadPage(this.currentPage);
-        } else {
-            console.log("No hay más productos disponibles.");
-        }
-    }
-
-    prevPage(): void {
-        if (this.currentPage > 1) {
-            this.currentPage--;
-            this.loadPage(this.currentPage);
-        }
+    onPageChange(page: number): void {
+        this.currentPage = page;
+        this.loadPage(this.currentPage);
     }
 }

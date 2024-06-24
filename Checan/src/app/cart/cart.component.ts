@@ -20,12 +20,24 @@ export class CartComponent implements OnDestroy {
   cartList$: Observable<Product[]>;
   isOpen = false;
   private cartOpenSubscription: Subscription;
-  subtotal: number | null = null; // Inicializar a null
+  private cartListSubscription: Subscription | undefined;
+  subtotal: number = 0;
 
-  constructor(private cartStateService: CartStateService, private cartService: ProductCartService, private router: Router, private sharedStateService: SharedStateService) {
+  constructor(
+    private cartStateService: CartStateService,
+    private cartService: ProductCartService,
+    private router: Router,
+    private sharedStateService: SharedStateService
+  ) {
     this.cartList$ = this.cartService.cartList.asObservable();
     this.cartOpenSubscription = this.cartStateService.isCartOpen$.subscribe(isOpen => {
       this.isOpen = isOpen;
+    });
+  }
+
+  ngOnInit() {
+    this.cartListSubscription = this.cartList$.subscribe(products => {
+      this.updateSubtotal(products);
     });
   }
 
@@ -35,13 +47,15 @@ export class CartComponent implements OnDestroy {
 
   ngOnDestroy() {
     this.cartOpenSubscription.unsubscribe();
+    if (this.cartListSubscription) {
+      this.cartListSubscription.unsubscribe();
+    }
   }
 
   calculateSubtotal(products: Product[]) {
     return products.reduce((acc, curr) => acc + (curr.price * curr.quantity), 0);
   }
 
-  // Método para calcular y actualizar el subtotal
   updateSubtotal(products: Product[]) {
     this.subtotal = this.calculateSubtotal(products);
   }
