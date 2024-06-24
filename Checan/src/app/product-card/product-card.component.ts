@@ -6,14 +6,13 @@ import { AddToCartButtonComponent } from "../add-to-cart-button/add-to-cart-butt
 import { ProductCartService } from '../product-cart.service';
 import { Product } from '../product/Product';
 import { SharedStateService } from '../shared-state.service';
-import { ViewProductButtonComponent } from "../view-product-button/view-product-button.component";
 
 @Component({
   selector: 'app-product-card',
   standalone: true,
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.scss'],
-  imports: [CommonModule, HttpClientModule, ViewProductButtonComponent, AddToCartButtonComponent]
+  imports: [CommonModule, HttpClientModule, AddToCartButtonComponent]
 })
 export class ProductCardComponent {
   @Input() product!: Product;

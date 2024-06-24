@@ -7,13 +7,12 @@ import { GoBackComponent } from "../go-back/go-back.component";
 import { ProductCartService } from '../product-cart.service';
 import { Product } from '../product/Product';
 import { SharedStateService } from '../shared-state.service';
-import { ViewProductButtonComponent } from '../view-product-button/view-product-button.component';
 @Component({
   selector: 'app-product-info',
   templateUrl: './product-info.component.html',
   standalone: true,
   styleUrls: ['./product-info.component.scss'],
-  imports: [CommonModule, HttpClientModule, ProductInfoComponent, ViewProductButtonComponent, AddToCartButtonComponent, GoBackComponent]
+  imports: [CommonModule, HttpClientModule, ProductInfoComponent, AddToCartButtonComponent, GoBackComponent]
 })
 
 export class ProductInfoComponent implements OnInit {
