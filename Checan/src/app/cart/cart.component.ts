@@ -4,7 +4,6 @@ import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { CartStateService } from '../cart-state.service';
-import { DeleteButtonComponent } from "../delete-product-button/delete-product-button.component";
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { ProductCartService } from '../product-cart.service';
 import { Product } from '../product/Product';
@@ -15,7 +14,7 @@ import { SharedStateService } from '../shared-state.service';
   standalone: true,
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
-  imports: [HttpClientModule, DeleteButtonComponent, ProductCardComponent, CommonModule]
+  imports: [HttpClientModule, ProductCardComponent, CommonModule]
 })
 export class CartComponent implements OnDestroy {
   cartList$: Observable<Product[]>;
