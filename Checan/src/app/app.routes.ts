@@ -30,10 +30,6 @@ export const routes: Routes = [
         component: NewsComponent,
     },
     {
-        path: 'product/filter',
-        component: ProductListByCategoryComponent
-    },
-    {
         path: 'contact',
         component: ContactComponent,
     },
