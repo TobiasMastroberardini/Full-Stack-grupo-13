@@ -120,9 +120,11 @@ def add_producto():
         # Validar datos (se asume que los datos contienen los campos de la tabla)
         campos = ['name', 'price', 'description', 'image', 'clearance', 'quantity', 'stock', 'url', 'category', 'openPackage']
         valores = [datos.get(campo) for campo in campos]
-
-        if not all(valores):
-            return jsonify({'error': 'Datos incompletos'}), 400
+        
+        for campo in campos:
+            datos.get(campo)
+            if datos == None:
+                return jsonify({'error': 'Datos incompletos'}), 400
 
         # Establecer conexión a la base de datos
         conn = mysql.connector.connect(**db_config)
