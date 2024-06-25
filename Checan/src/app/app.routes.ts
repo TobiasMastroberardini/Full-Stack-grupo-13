@@ -28,10 +28,6 @@ export const routes: Routes = [
         path: 'news',
         component: NewsComponent,
     },
-<<<<<<< HEAD
-
-=======
->>>>>>> 54f32270e60c85a88e09132ee5b1544b72c5fcee
     {
         path: 'contact',
         component: ContactComponent,
