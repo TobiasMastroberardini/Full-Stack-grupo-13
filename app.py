@@ -312,7 +312,7 @@ def get_cart_items(cart_id):
         cursor = conn.cursor(dictionary=True)
 
         query = """
-        SELECT ci.cart_item_id, p.id AS product_id, p.name, p.price, ci.quantity
+        SELECT ci.cart_items_id, p.id AS product_id, p.name, p.price, ci.quantity
         FROM cart_items ci
         JOIN product p ON ci.product_id = p.id
         WHERE ci.cart_id = %s
@@ -353,7 +353,6 @@ def update_cart_item(cart_id, item_id):
     except Exception as e:
         return jsonify(error=str(e)), 500
 
-
 @app.route('/carritos/<int:cart_id>/items', methods=['POST'])
 def add_cart_item(cart_id):
     try:
@@ -367,14 +366,26 @@ def add_cart_item(cart_id):
         conn = mysql.connector.connect(**db_config)
         cursor = conn.cursor()
 
-        query = "INSERT INTO cart_items (cart_id, product_id, quantity) VALUES (%s, %s, %s)"
-        cursor.execute(query, (cart_id, product_id, quantity))
+        # Verificar si el producto ya existe en el carrito
+        query_check = "SELECT quantity FROM cart_items WHERE cart_id = %s AND product_id = %s"
+        cursor.execute(query_check, (cart_id, product_id))
+        result = cursor.fetchone()
+
+        if result:
+            # Si el producto ya existe, actualizar la cantidad
+            new_quantity = result[0] + quantity
+            query_update = "UPDATE cart_items SET quantity = %s WHERE cart_id = %s AND product_id = %s"
+            cursor.execute(query_update, (new_quantity, cart_id, product_id))
+        else:
+            # Si el producto no existe, insertar un nuevo registro
+            query_insert = "INSERT INTO cart_items (cart_id, product_id, quantity) VALUES (%s, %s, %s)"
+            cursor.execute(query_insert, (cart_id, product_id, quantity))
 
         conn.commit()
         cursor.close()
         conn.close()
 
-        return jsonify({'message': 'Item de carrito creado correctamente'}), 201
+        return jsonify({'message': 'Item de carrito actualizado correctamente'}), 201
 
     except Exception as e:
         return jsonify(error=str(e)), 500
@@ -386,7 +397,7 @@ def delete_cart_item(cart_id, item_id):
         conn = mysql.connector.connect(**db_config)
         cursor = conn.cursor()
 
-        query = "DELETE FROM cart_items WHERE cart_id = %s AND id = %s"
+        query = "DELETE FROM cart_items WHERE cart_id = %s AND cart_items_id = %s"
         cursor.execute(query, (cart_id, item_id))
 
         conn.commit()
