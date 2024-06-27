@@ -1,0 +1,70 @@
+.card {
+    border: none;
+    /* Elimina el borde */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+button {
+    background-color: #232323;
+    font-family: "Montserrat", sans-serif;
+    color: #fff;
+    border: none;
+    margin: 10px;
+}
+
+.button:hover {
+    background-color: #434343;
+}
+
+.row {
+    justify-content: center;
+    min-height: 400px;
+    align-items: center;
+}
+
+.carousel {
+    text-align: center;
+    justify-content: center;
+    align-items: centers;
+}
+
+.flex {
+    margin-top: 10px;
+    justify-content: center;
+    border: none;
+}
+
+h1 {
+    font-size: 20px;
+    font-family: "Quicksand",
+        sans-serif;
+}
+
+.container {
+    text-align: center;
+}
+
+
+
+.product-grid {
+    display: grid;
+    gap: 16px;
+}
+
+.chunk-1 {
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.chunk-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.chunk-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.chunk-4 {
+    grid-template-columns: repeat(4, 1fr);
+}

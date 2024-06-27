@@ -1,0 +1,31 @@
+.product-info {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Alinea verticalmente los elementos */
+}
+
+.image {
+    flex: 0 0 auto;
+    /* La imagen no debe crecer ni contraer */
+    /* Espacio entre la imagen y el contenido */
+}
+
+.content {
+    flex: 1;
+    /* El contenido debe ocupar todo el espacio disponible */
+}
+
+.mt-8 {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.app-cart-button {
+    justify-content: center;
+}

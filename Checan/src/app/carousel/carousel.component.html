@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="intro">
+        <div class="separador"></div>
+        <h1 class="text-lg font-bold text-gray-900 mx-auto">CARRUSEL DE PRODUCTOS</h1>
+        <div class="separador"></div>
+    </div>
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div *ngFor="let productChunk of productChunks; let i = index" [class.active]="i === 0"
+                class="carousel-item" data-bs-interval="10000">
+                <div class="row">
+                    <div *ngFor="let product of productChunk" class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card">
+                            <app-product-card [product]="product"></app-product-card>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev"
+                class="px-6 py-2 font-medium tracking-wide capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:bg-black focus:text-white">
+                Anterior
+            </button>
+
+
+
+
+            <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next"
+                class="px-6 py-2 font-medium tracking-wide capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:bg-black focus:text-white">
+                Siguiente
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<section class="bg-white dark:bg-gray-900">
+    <div *ngIf="product$ | async as product; else notFound">
+        <div class="container px-6 py-10 mx-auto">
+            <div class="lg:-mx-6 lg:flex lg:items-center">
+                <img class="object-cover object-center lg:w-1/2 lg:mx-6 w-full h-96 rounded-lg lg:h-[36rem]"
+                    [src]="product.image" alt="{{ product.name }}">
+
+                <div class="mt-8 lg:w-1/2 lg:px-6 lg:mt-0">
+                    <h1 class="text-2xl font-semibold text-gray-800 dark:text-white lg:text-3xl lg:w-96">
+                        {{ product.name }}
+                    </h1>
+
+                    <p class="max-w-lg mt-6 text-gray-500 dark:text-gray-400">
+                        {{ product.description }}
+                    </p>
+
+                    <p class="text-gray-600 dark:text-gray-300">{{ product.price | currency }}</p>
+
+                    <!-- Agregar el botón de agregar al carrito -->
+                    <app-add-to-cart-button class="app-cart-button" [product]="product"
+                        (addToCart)="onAddToCart($event)">
+                    </app-add-to-cart-button>
+
+                    <div class="flex items-center justify-between mt-12 lg:justify-start">
+                        <app-go-back></app-go-back>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ng-template #notFound>
+        <p>Error: No se ha encontrado el producto.</p>
+    </ng-template>
+</section>

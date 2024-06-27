@@ -1,0 +1,15 @@
+<div class="categories-list">
+    <app-category-list></app-category-list>
+</div>
+<div class="product-list">
+    <div class="grid-container">
+        <div *ngFor="let product of products$ | async" class="product-item">
+            <app-product-card class="card" [product]="product"></app-product-card>
+        </div>
+    </div>
+
+    <div>
+        <app-previus-and-next [currentPage]="currentPage" [totalPages]="totalPages" (pageChange)="onPageChange($event)">
+            ></app-previus-and-next>
+    </div>
+</div>

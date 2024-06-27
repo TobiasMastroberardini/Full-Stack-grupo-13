@@ -1,0 +1,63 @@
+h1 {
+    font-size: 20px;
+    font-family: "Quicksand",
+        sans-serif;
+    margin-bottom: 40px;
+}
+
+.container {
+    text-align: center;
+}
+
+.product-list {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.product-item,
+.card {
+    justify-content: center;
+}
+
+.row,
+.card {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border: none;
+    margin-bottom: 10px;
+}
+
+.col {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Establece el tamaño mínimo y máximo de las columnas */
+    gap: 20px;
+    /* Espacio entre los elementos */
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.flex {
+    justify-content: center;
+}
+
+button {
+    background-color: #232323;
+    font-family: "Montserrat", sans-serif;
+    color: #fff;
+    border: none;
+    margin: 10px;
+}
+
+nav {
+    margin-bottom: 20px;
+}

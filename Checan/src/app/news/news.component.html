@@ -1,0 +1,16 @@
+<div class="product-list">
+    <h1>NOVEDADES</h1>
+
+    <div class="grid-container">
+        @for(product of products; track product.name){
+        <app-product-card class="card" [product]="product"></app-product-card>
+        }@empty {
+        <p>No hay productos en oferta</p>
+        }
+    </div>
+
+    <div>
+        <app-previus-and-next [currentPage]="currentPage" [totalPages]="totalPages"
+            (pageChange)="onPageChange($event)">></app-previus-and-next>
+    </div>
+</div>

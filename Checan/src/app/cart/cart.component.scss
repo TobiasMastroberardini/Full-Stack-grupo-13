@@ -1,0 +1,9 @@
+.carrito-title {
+    position: relative;
+}
+
+.carrito-title h2 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
