@@ -126,7 +126,7 @@ def get_productos_por_categoria_especifica(categoria):
     except Exception as e:
         return jsonify(error=str(e)), 500
 
-# Ruta para actualizar un producto por su ID
+ #Ruta para actualizar un producto por su ID
 @app.route('/productos/<int:producto_id>', methods=['PUT'])
 def update_producto(producto_id):
     try:
@@ -137,8 +137,9 @@ def update_producto(producto_id):
         campos = ['name', 'price', 'description', 'image', 'clearance', 'quantity', 'stock', 'url', 'category', 'openPackage']
         valores = [datos.get(campo) for campo in campos]
 
-        if not all(valores):
-            return jsonify({'error': 'Datos incompletos'}), 400
+        for valor in valores:
+            if valor == None:
+                return jsonify({'error': 'Datos incompletos'}), 400
 
         # Establecer conexión a la base de datos
         conn = mysql.connector.connect(**db_config)
@@ -165,6 +166,7 @@ def update_producto(producto_id):
 
     except Exception as e:
         return jsonify(error=str(e))
+
 
 # Ruta para agregar un nuevo producto
 @app.route('/productos', methods=['POST'])
