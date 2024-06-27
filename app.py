@@ -1,5 +1,6 @@
 import mysql.connector
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 
 db_config = {
     'host': 'localhost',
@@ -10,6 +11,7 @@ db_config = {
 }
 
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "http://localhost:4200"}})
 
 @app.route('/')
 def index():
@@ -69,6 +71,60 @@ def get_producto(producto_id):
 
     except Exception as e:
         return jsonify(error=str(e))
+    
+# Ruta para obtener productos agrupados por categoría
+@app.route('/productos/categorias', methods=['GET'])
+def get_productos_por_categoria():
+    try:
+        conn = mysql.connector.connect(**db_config)
+        cursor = conn.cursor(dictionary=True)
+
+        query = """
+        SELECT id, name, price, description, image, clearance, quantity, stock, url, category, openPackage
+        FROM product
+        ORDER BY category
+        """
+        cursor.execute(query)
+        productos = cursor.fetchall()
+
+        # Agrupar productos por categoría
+        categorias_productos = {}
+        for producto in productos:
+            categoria = producto['category']
+            if categoria not in categorias_productos:
+                categorias_productos[categoria] = []
+            categorias_productos[categoria].append(producto)
+
+        cursor.close()
+        conn.close()
+
+        return jsonify(categorias_productos)
+
+    except Exception as e:
+        return jsonify(error=str(e)), 500
+
+# Ruta para obtener productos de una categoría específica
+@app.route('/productos/categorias/<string:categoria>', methods=['GET'])
+def get_productos_por_categoria_especifica(categoria):
+    try:
+        conn = mysql.connector.connect(**db_config)
+        cursor = conn.cursor(dictionary=True)
+
+        query = """
+        SELECT id, name, price, description, image, clearance, quantity, stock, url, category, openPackage
+        FROM product
+        WHERE category = %s
+        """
+        cursor.execute(query, (categoria,))
+        productos = cursor.fetchall()
+
+        cursor.close()
+        conn.close()
+
+        return jsonify(productos)
+
+    except Exception as e:
+        return jsonify(error=str(e)), 500
 
 # Ruta para actualizar un producto por su ID
 @app.route('/productos/<int:producto_id>', methods=['PUT'])
