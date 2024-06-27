@@ -60,4 +60,8 @@ export class ProductsListComponent {
     }
   }
 
+  redirectToAddProduct(): void {
+    this.router.navigate(['/add-product']);
+  }
+
 }
