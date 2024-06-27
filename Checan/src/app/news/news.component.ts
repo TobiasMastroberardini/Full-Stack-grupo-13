@@ -26,7 +26,7 @@ export class NewsComponent implements OnInit {
     this.loadTotalPages();
     this.loadPage(this.currentPage);
 
-    this.productService.getAll().subscribe(products => {
+    this.productService.getAllProducts().subscribe(products => {
       // Filtrar los productos con clearance igual a true
       this.products = products.filter(product => product.clearance);
     });

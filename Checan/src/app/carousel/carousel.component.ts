@@ -22,7 +22,7 @@ export class CarouselComponent {
   ngOnInit(): void {
     if (typeof window !== 'undefined') {
       this.setChunkSize();
-      this.productsDataService.getAll().subscribe(products => {
+      this.productsDataService.getAllProducts().subscribe(products => {
         this.products = products;
         this.chunkProducts();
       });

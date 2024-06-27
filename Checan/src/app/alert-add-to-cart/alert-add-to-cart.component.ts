@@ -24,11 +24,6 @@ export class AlertAddToCartComponent implements OnInit, OnDestroy {
     this.cartStateService.toggleCart();
   }
 
-  toggleCart() {
-    this.isCartOpen = !this.isCartOpen;
-  }
-
-
   ngOnInit() {
     this.alertSubscription = this.alertService.alert$.subscribe(message => {
       this.message = message;

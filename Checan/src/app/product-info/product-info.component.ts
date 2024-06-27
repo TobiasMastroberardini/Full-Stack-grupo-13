@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { AddToCartButtonComponent } from "../add-to-cart-button/add-to-cart-button.component";
 import { GoBackComponent } from "../go-back/go-back.component";
 import { ProductCartService } from '../product-cart.service';
+import { ProductDataService } from '../product-data.service';
 import { Product } from '../product/Product';
-import { SharedStateService } from '../shared-state.service';
 @Component({
   selector: 'app-product-info',
   templateUrl: './product-info.component.html',
@@ -16,20 +17,18 @@ import { SharedStateService } from '../shared-state.service';
 })
 
 export class ProductInfoComponent implements OnInit {
-  product: Product | undefined;
+  product$: Observable<Product> | undefined;
 
   constructor(
-    private router: Router,
-    private sharedStateService: SharedStateService,
-    private cartService: ProductCartService // Inyecta el servicio del carrito
+    private productService: ProductDataService,
+    private route: ActivatedRoute,
+    private cartService: ProductCartService
   ) { }
 
   ngOnInit(): void {
-    this.product = this.sharedStateService.getProduct();
-
-    if (!this.product) {
-      // Manejar el caso en que no se pase el producto correctamente (ej. redireccionar o mostrar un mensaje)
-      this.router.navigate(['/']); // Redirigir a la página principal o mostrar un mensaje
+    const productId = this.route.snapshot.paramMap.get('id');
+    if (productId) {
+      this.product$ = this.productService.getProductById(productId);
     }
   }
 

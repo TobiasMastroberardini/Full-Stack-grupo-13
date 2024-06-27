@@ -23,11 +23,6 @@ export class ProductCardComponent {
     private cartService: ProductCartService
   ) { }
 
-  redirectToProductInfo(): void {
-    this.sharedStateService.setProduct(this.product);
-    this.router.navigate(['/product-info']);
-  }
-
   onAddToCart(): void {
     this.cartService.addToCart({ ...this.product, quantity: 1 });
   }
