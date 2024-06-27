@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductDataService } from '../product-data.service';
 import { Product } from '../product/Product';
 
+
 @Component({
   selector: 'app-edit-product',
   standalone: true,
@@ -13,7 +14,7 @@ import { Product } from '../product/Product';
   styleUrl: './edit-product.component.scss'
 })
 export class EditProductComponent implements OnInit {
-  productId: string | null = null;
+  productId: number | undefined;
   product: Product | null = null;
 
   constructor(
@@ -23,7 +24,7 @@ export class EditProductComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.productId = this.route.snapshot.paramMap.get('id');
+    this.productId = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
     if (this.productId) {
       this.productService.getProductById(this.productId).subscribe(
         product => {
