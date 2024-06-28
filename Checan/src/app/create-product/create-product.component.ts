@@ -11,7 +11,6 @@ import { Product } from '../product/Product';
   styleUrl: './create-product.component.scss'
 })
 export class CreateProductComponent {
-
   newProduct: Product = {
     name: '',
     price: 0,

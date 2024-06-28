@@ -173,6 +173,7 @@ def update_producto(producto_id):
     except Exception as e:
         return jsonify(error=str(e))
 
+
 # Ruta para agregar un nuevo producto
 @app.route('/productos', methods=['POST'])
 def add_producto():

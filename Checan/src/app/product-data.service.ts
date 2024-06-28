@@ -28,7 +28,7 @@ export class ProductDataService {
   }
 
   // Método para obtener un producto por su ID
-  getProductById(productId: string): Observable<Product> {
+  getProductById(productId: number): Observable<Product> {
     return this.http.get<Product>(`${this.apiUrl}/productos/${productId}`);
   }
 
@@ -61,16 +61,17 @@ export class ProductDataService {
       );
   }
 
+  // Método para actualizar un producto
   updateProduct(product: Product): Observable<Product> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    this.alertService.showAlert('Producto editado correctamente');
+    this.alertService.showAlert('Producto editado correctamente'); // Muestra una alerta de éxito
+    console.log(product, product.id)
 
     return this.http.put<Product>(`${this.apiUrl}/productos/${product.id}`, product, { headers })
       .pipe(
-        catchError(this.handleError)
+        catchError(this.handleError) // Manejo de errores
       );
   }
-
   // Método para eliminar un producto por su ID
   deleteProductById(productId: number): Observable<any> {
     this.alertService.showAlert('Producto eliminado correctamente');
