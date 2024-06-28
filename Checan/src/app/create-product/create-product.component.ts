@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { GoBackComponent } from "../go-back/go-back.component";
 import { ProductDataService } from '../product-data.service';
 import { Product } from '../product/Product';
 
 @Component({
   selector: 'app-create-product',
   standalone: true,
-  imports: [FormsModule],
   templateUrl: './create-product.component.html',
-  styleUrl: './create-product.component.scss'
+  styleUrl: './create-product.component.scss',
+  imports: [FormsModule, GoBackComponent]
 })
 export class CreateProductComponent {
   newProduct: Product = {
