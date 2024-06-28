@@ -1,6 +1,8 @@
+import jwt
 import mysql.connector
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+from werkzeug.security import check_password_hash, generate_password_hash
 
 db_config = {
     'host': 'localhost',
@@ -11,6 +13,10 @@ db_config = {
 }
 
 app = Flask(__name__)
+
+# Configuración de JWT (ejemplo básico, usar secretos seguros en producción)
+app.config['SECRET_KEY'] = 'tu_secreto'
+
 CORS(app, resources={r"/*": {"origins": "http://localhost:4200"}})
 
 @app.route('/')
@@ -126,7 +132,7 @@ def get_productos_por_categoria_especifica(categoria):
     except Exception as e:
         return jsonify(error=str(e)), 500
 
-# Ruta para actualizar un producto por su ID
+ #Ruta para actualizar un producto por su ID
 @app.route('/productos/<int:producto_id>', methods=['PUT'])
 def update_producto(producto_id):
     try:
@@ -137,8 +143,9 @@ def update_producto(producto_id):
         campos = ['name', 'price', 'description', 'image', 'clearance', 'quantity', 'stock', 'url', 'category', 'openPackage']
         valores = [datos.get(campo) for campo in campos]
 
-        if not all(valores):
-            return jsonify({'error': 'Datos incompletos'}), 400
+        for valor in valores:
+            if valor == None:
+                return jsonify({'error': 'Datos incompletos'}), 400
 
         # Establecer conexión a la base de datos
         conn = mysql.connector.connect(**db_config)
@@ -165,6 +172,7 @@ def update_producto(producto_id):
 
     except Exception as e:
         return jsonify(error=str(e))
+
 
 # Ruta para agregar un nuevo producto
 @app.route('/productos', methods=['POST'])
@@ -375,11 +383,14 @@ def get_cart_items(cart_id):
         """
         cursor.execute(query, (cart_id,))
         items = cursor.fetchall()
+        
+        # Calcular el total del carrito
+        total = sum(item['price'] * item['quantity'] for item in items)
 
         cursor.close()
         conn.close()
 
-        return jsonify(items)
+        return jsonify({'items': items, 'total': total})
 
     except Exception as e:
         return jsonify(error=str(e)), 500
@@ -554,8 +565,11 @@ def create_user():
         password = datos.get('password')
         is_admin = datos.get('is_admin', False)
 
-        if not name or not email or not password:
+        if not name or not email or not last_name or not phone or not password:
             return jsonify({'error': 'Datos incompletos'}), 400
+
+        # Hashear la contraseña antes de almacenarla
+        hashed_password = generate_password_hash(password)
 
         conn = mysql.connector.connect(**db_config)
         cursor = conn.cursor()
@@ -564,7 +578,7 @@ def create_user():
         INSERT INTO user (name, last_name, phone, email, password, is_admin)
         VALUES (%s, %s, %s, %s, %s, %s)
         """
-        cursor.execute(query, (name, last_name, phone, email, password, is_admin))
+        cursor.execute(query, (name, last_name, phone, email, hashed_password, is_admin))
 
         conn.commit()
         user_id = cursor.lastrowid
@@ -574,9 +588,29 @@ def create_user():
 
         return jsonify({'message': 'Usuario creado correctamente', 'user_id': user_id}), 201
 
-    except Exception as e:
-        return jsonify(error=str(e)), 500
+    except mysql.connector.Error as mysql_error:
+        return jsonify({'error': 'Error de MySQL: {}'.format(mysql_error)}), 500
+    
 
+
+# Ruta de login
+@app.route('/login', methods=['POST'])
+def login():
+    datos = request.json
+    email = datos.get('email')
+    password = datos.get('password')
+
+    # Verificar las credenciales (ejemplo básico)
+    if not email or not password:
+        return jsonify({'error': 'Credenciales incompletas'}), 400
+
+    # Comprobar en la base de datos (sustituir con tu lógica de verificación)
+    if email == 'usuario@example.com' and check_password_hash('hashed_password_here', password):
+        # Generar token JWT (ejemplo básico)
+        token = jwt.encode({'email': email}, app.config['SECRET_KEY'], algorithm='HS256')
+        return jsonify({'token': token}), 200
+    else:
+        return jsonify({'error': 'Credenciales inválidas'}), 401
 
 @app.route('/users/<int:user_id>', methods=['DELETE'])
 def delete_user(user_id):
