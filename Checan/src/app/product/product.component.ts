@@ -57,7 +57,7 @@ export class ProductComponent implements OnInit {
     loadTotalPages(): void {
         if (this.selectedCategory) {
             this.products$ = this.productService.getProductsByCategory(this.selectedCategory).pipe(
-                tap(products => this.totalPages = Math.ceil(products.length / 10))
+                tap(products => this.totalPages = Math.ceil(products.length / 12))
             );
         } else {
             this.productService.getTotalPages().pipe(

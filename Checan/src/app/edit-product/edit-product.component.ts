@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { GoBackComponent } from "../go-back/go-back.component";
 import { ProductDataService } from '../product-data.service';
 import { Product } from '../product/Product';
 
@@ -9,9 +10,9 @@ import { Product } from '../product/Product';
 @Component({
   selector: 'app-edit-product',
   standalone: true,
-  imports: [CommonModule, FormsModule],
   templateUrl: './edit-product.component.html',
-  styleUrl: './edit-product.component.scss'
+  styleUrl: './edit-product.component.scss',
+  imports: [CommonModule, FormsModule, GoBackComponent]
 })
 export class EditProductComponent implements OnInit {
   productId: number | undefined;

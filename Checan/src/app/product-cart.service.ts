@@ -1,6 +1,7 @@
 // product-cart.service.ts
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { AlertService } from './alert.service';
 import { Product } from './product/Product';
 
@@ -11,7 +12,9 @@ export class ProductCartService {
   private _cartList: Product[] = [];
   cartList: BehaviorSubject<Product[]> = new BehaviorSubject(this._cartList);
 
-  constructor(private alertService: AlertService) {
+  private apiUrl = 'http://127.0.0.1:5000';
+
+  constructor(private alertService: AlertService, private http: HttpClient) {
     this._cartList = this.getCartFromLocalStorage();
     this.cartList.next(this._cartList);
   }
@@ -52,5 +55,24 @@ export class ProductCartService {
       return cart ? JSON.parse(cart) : [];
     }
     return [];
+  }
+
+  getAllCarts(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/carritos`);
+  }
+
+  getCartItems(cart_id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/carritos/${cart_id}/items`);
+  }
+
+  createCart(user_id: number): Observable<any> {
+    const body = { user_id };
+    this.alertService.showAlert("Carrito enviado");
+    return this.http.post<any>(`${this.apiUrl}/carritos`, body);
+  }
+
+  addCartItem(cart_id: number, product_id: number, quantity: number): Observable<any> {
+    const body = { product_id, quantity };
+    return this.http.post<any>(`${this.apiUrl}/carritos/${cart_id}/items`, body);
   }
 }

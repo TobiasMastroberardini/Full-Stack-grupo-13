@@ -1,14 +1,18 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
+import { AlertService } from '../alert.service';
+import { ErrorAlertComponent } from "../error-alert/error-alert.component";
+import { GoBackComponent } from "../go-back/go-back.component";
 import { ProductDataService } from '../product-data.service';
 import { Product } from '../product/Product';
 
 @Component({
   selector: 'app-create-product',
   standalone: true,
-  imports: [FormsModule],
   templateUrl: './create-product.component.html',
-  styleUrl: './create-product.component.scss'
+  styleUrl: './create-product.component.scss',
+  imports: [FormsModule, GoBackComponent, CommonModule, ErrorAlertComponent]
 })
 export class CreateProductComponent {
   newProduct: Product = {
@@ -24,9 +28,16 @@ export class CreateProductComponent {
     openPackage: 0
   };
 
-  constructor(private productService: ProductDataService) { }
+  showErrorAlert: boolean = false;
+  errorMessage: string = 'Error';
 
-  onSubmit() {
+  constructor(private productService: ProductDataService, private alertService: AlertService) { }
+
+  onSubmit(productForm: NgForm) {
+    if (productForm.invalid) {
+      this.alertService.showAlert('Por favor, completa todos los campos requeridos antes de enviar.');
+      return;
+    }
     this.productService.addProduct(this.newProduct).subscribe(
       response => {
         console.log('Producto creado correctamente:', response);

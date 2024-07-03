@@ -1,15 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { GoBackComponent } from "../go-back/go-back.component";
 import { ProductDataService } from '../product-data.service';
 import { Product } from '../product/Product';
 
 @Component({
   selector: 'app-products-list',
   standalone: true,
-  imports: [CommonModule],
   templateUrl: './products-list.component.html',
-  styleUrl: './products-list.component.scss'
+  styleUrl: './products-list.component.scss',
+  imports: [CommonModule, GoBackComponent]
 })
 export class ProductsListComponent {
   @Input() product!: Product;
