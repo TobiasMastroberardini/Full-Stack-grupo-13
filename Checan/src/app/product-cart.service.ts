@@ -67,6 +67,7 @@ export class ProductCartService {
 
   createCart(user_id: number): Observable<any> {
     const body = { user_id };
+    this.alertService.showAlert("Carrito enviado");
     return this.http.post<any>(`${this.apiUrl}/carritos`, body);
   }
 
