@@ -1,12 +1,11 @@
 <div class="container">
     <div class="go-back">
         <app-go-back></app-go-back>
-
     </div>
     <h2>Agregar Nuevo Producto</h2>
 
     <div class="edit-product-container">
-        <form (ngSubmit)="onSubmit()" #productForm="ngForm" class="edit-product-form">
+        <form (ngSubmit)="onSubmit(productForm)" #productForm="ngForm" class="edit-product-form">
             <div class="form-group">
                 <label for="name">Nombre:</label>
                 <input type="text" class="form-control" id="name" name="name" [(ngModel)]="newProduct.name" required>
@@ -54,7 +53,7 @@
                 <input type="number" class="form-control" id="openPackage" name="openPackage"
                     [(ngModel)]="newProduct.openPackage" required>
             </div>
-            <button type="submit" class="btn-save" [disabled]="!productForm.valid">Agregar Producto</button>
+            <button type="submit" class="btn-save">Agregar Producto</button>
         </form>
     </div>
 </div>

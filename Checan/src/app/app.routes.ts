@@ -11,6 +11,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ProductInfoComponent } from './product-info/product-info.component';
 import { ProductComponent } from './product/product.component';
 import { ProductsListComponent } from './products-list/products-list.component';
+import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { UserListComponent } from './user-list/user-list.component';
 
@@ -75,6 +76,10 @@ export const routes: Routes = [
     {
         path: 'user-list',
         component: UserListComponent,
+    },
+    {
+        path: 'shopping-list',
+        component: ShoppingListComponent,
     },
     {
         path: '**',  // Ruta para manejar URLs no encontradas

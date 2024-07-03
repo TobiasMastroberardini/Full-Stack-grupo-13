@@ -64,4 +64,14 @@ export class ProductCartService {
   getCartItems(cart_id: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/carritos/${cart_id}/items`);
   }
+
+  createCart(user_id: number): Observable<any> {
+    const body = { user_id };
+    return this.http.post<any>(`${this.apiUrl}/carritos`, body);
+  }
+
+  addCartItem(cart_id: number, product_id: number, quantity: number): Observable<any> {
+    const body = { product_id, quantity };
+    return this.http.post<any>(`${this.apiUrl}/carritos/${cart_id}/items`, body);
+  }
 }
