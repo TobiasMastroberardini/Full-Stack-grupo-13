@@ -13,7 +13,7 @@ interface LoginResponse {
   providedIn: 'root'
 })
 export class UserDataService {
-  private apiUrl = 'http://127.0.0.1:5000';
+  private apiUrl = 'https://tmastro.pythonanywhere.com/';
 
   constructor(private http: HttpClient, private alertService: AlertService) { }
 

@@ -10,7 +10,7 @@ import { Product } from './product/Product';
 })
 export class ProductDataService {
 
-  private apiUrl = 'http://127.0.0.1:5000';
+  private apiUrl = 'https://tmastro.pythonanywhere.com';
   private products: Product[] = [];
   private productsPerPage = 10;
 
